@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 207.0 362.0" role="img" aria-label="Nebe Peklo Ráj">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 299.0 362.0" role="img" aria-label="Nebe Peklo Ráj">
 <title>Nebe Peklo Ráj</title>
-<g transform="translate(19.0,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,95 V5 L29,95 V5" stroke="#1477d4" stroke-width="12"/></g>
-<g transform="translate(60.0,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M28,5 H5 V95 H28 M5,50 H24" stroke="#1477d4" stroke-width="12"/></g>
-<g transform="translate(100.0,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,50 H16 C30,50 30,95 16,95 H5 V5 H15 C27,5 27,50 15,50" stroke="#1477d4" stroke-width="12"/></g>
-<g transform="translate(139.0,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M28,5 H5 V95 H28 M5,50 H24" stroke="#1477d4" stroke-width="12"/></g>
-<g transform="translate(0.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,95 V5 H15 C29,5 29,56 15,56 H5" stroke="#d0261c" stroke-width="12"/></g>
-<g transform="translate(38.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M28,5 H5 V95 H28 M5,50 H24" stroke="#d0261c" stroke-width="12"/></g>
-<g transform="translate(78.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,5 V95 M28,5 L6,62 M15,40 L29,95" stroke="#d0261c" stroke-width="12"/></g>
-<g transform="translate(119.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,5 V95 H27" stroke="#d0261c" stroke-width="12"/></g>
-<g transform="translate(157.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M17,5 C31,5 31,5 31,30 V70 C31,95 31,95 17,95 C3,95 3,95 3,70 V30 C3,5 3,5 17,5 Z" stroke="#d0261c" stroke-width="12"/></g>
-<g transform="translate(37.5,246.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,95 V5 H15 C29,5 29,56 15,56 H5 M15,56 L29,95" stroke="#2f9a45" stroke-width="12"/></g>
-<g transform="translate(78.5,246.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5,95 L19,5 L33,95 M10,64 H28 M17,-6 L25,-17" stroke="#2f9a45" stroke-width="12"/></g>
-<g transform="translate(123.5,246.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M25,5 V72 C25,99 5,99 5,76" stroke="#2f9a45" stroke-width="12"/></g>
+<g transform="translate(29.5,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,94 V6 L45,94 V6" stroke="#1963D1" stroke-width="13"/></g>
+<g transform="translate(89.5,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M42,6 H7 V94 H42 M7,50 H37" stroke="#1963D1" stroke-width="13"/></g>
+<g transform="translate(146.5,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,50 H30 C46,50 46,94 30,94 H7 V6 H28 C43,6 43,50 28,50" stroke="#1963D1" stroke-width="13"/></g>
+<g transform="translate(204.5,0.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M42,6 H7 V94 H42 M7,50 H37" stroke="#1963D1" stroke-width="13"/></g>
+<g transform="translate(0.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,94 V6 H29 C46,6 46,56 29,56 H7" stroke="#EE2A2A" stroke-width="13"/></g>
+<g transform="translate(58.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M42,6 H7 V94 H42 M7,50 H37" stroke="#EE2A2A" stroke-width="13"/></g>
+<g transform="translate(115.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,6 V94 M43,6 L9,62 M22,44 L45,94" stroke="#EE2A2A" stroke-width="13"/></g>
+<g transform="translate(175.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,6 V94 H41" stroke="#EE2A2A" stroke-width="13"/></g>
+<g transform="translate(230.0,116.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M25,6 H29 C40,6 46,12 46,24 V76 C46,88 40,94 29,94 H25 C14,94 7,88 7,76 V24 C7,12 14,6 25,6 Z" stroke="#EE2A2A" stroke-width="13"/></g>
+<g transform="translate(58.0,246.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,94 V6 H29 C46,6 46,56 29,56 H7 M28,56 L45,94" stroke="#5DDA1F" stroke-width="13"/></g>
+<g transform="translate(118.0,246.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7,94 L27,6 L47,94 M14,64 H40 M25,-6 L33,-17" stroke="#5DDA1F" stroke-width="13"/></g>
+<g transform="translate(180.0,246.0)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M38,6 V70 C38,98 7,98 7,74" stroke="#5DDA1F" stroke-width="13"/></g>
 </svg>

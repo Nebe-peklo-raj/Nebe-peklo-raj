@@ -11,30 +11,31 @@ import math
 import os
 
 H = 100          # cap height (centre-line runs 5..95, stroke caps fill 0..100)
-W = 12           # stroke width
-GAP = 7          # space between letters
+W = 13           # stroke width
+GAP = 8          # space between letters
 LINE_GAP = 16    # space between words
 ACCENT_SPACE = 14  # extra room above the line holding Á
 
 # Centre-line paths. Each value: (path, advance width).
 LETTERS = {
-    "N": ("M5,95 V5 L29,95 V5", 34),
-    "E": ("M28,5 H5 V95 H28 M5,50 H24", 33),
-    "B": ("M5,50 H16 C30,50 30,95 16,95 H5 V5 H15 C27,5 27,50 15,50", 32),
-    "P": ("M5,95 V5 H15 C29,5 29,56 15,56 H5", 31),
-    "K": ("M5,5 V95 M28,5 L6,62 M15,40 L29,95", 34),
-    "L": ("M5,5 V95 H27", 31),
-    "O": ("M17,5 C31,5 31,5 31,30 V70 C31,95 31,95 17,95 C3,95 3,95 3,70 V30 C3,5 3,5 17,5 Z", 34),
-    "R": ("M5,95 V5 H15 C29,5 29,56 15,56 H5 M15,56 L29,95", 34),
-    "Á": ("M5,95 L19,5 L33,95 M10,64 H28 M17,-6 L25,-17", 38),
-    "J": ("M25,5 V72 C25,99 5,99 5,76", 30),
+    "N": ("M7,94 V6 L45,94 V6", 52),
+    "E": ("M42,6 H7 V94 H42 M7,50 H37", 49),
+    "B": ("M7,50 H30 C46,50 46,94 30,94 H7 V6 H28 C43,6 43,50 28,50", 50),
+    "P": ("M7,94 V6 H29 C46,6 46,56 29,56 H7", 50),
+    "K": ("M7,6 V94 M43,6 L9,62 M22,44 L45,94", 52),
+    "L": ("M7,6 V94 H41", 47),
+    "O": ("M25,6 H29 C40,6 46,12 46,24 V76 C46,88 40,94 29,94 H25 "
+          "C14,94 7,88 7,76 V24 C7,12 14,6 25,6 Z", 53),
+    "R": ("M7,94 V6 H29 C46,6 46,56 29,56 H7 M28,56 L45,94", 52),
+    "Á": ("M7,94 L27,6 L47,94 M14,64 H40 M25,-6 L33,-17", 54),
+    "J": ("M38,6 V70 C38,98 7,98 7,74", 45),
 }
 
-# Colour per word: (edge / shadow, middle, highlight)
+# Colour per word: (edge, main, highlight). Edge + main are Tobias's colours.
 PALETTES = {
-    "nebe":  ("#083a7a", "#1477d4", "#7cc8ff"),
-    "peklo": ("#5e0a0a", "#d0261c", "#ffa04a"),
-    "raj":   ("#16502a", "#2f9a45", "#a6e57a"),
+    "nebe":  ("#194FA2", "#1963D1", "#4F8BE6"),
+    "peklo": ("#B92A2A", "#EE2A2A", "#FF6A5C"),
+    "raj":   ("#4DB21B", "#5DDA1F", "#8FEA5A"),
 }
 WORDS = [("NEBE", "nebe"), ("PEKLO", "peklo"), ("RÁJ", "raj")]
 
@@ -52,9 +53,10 @@ def mix(a, b, t):
 def shade(pal, t):
     """t = 0 at the tube edge, 1 at its centre."""
     edge, mid, light = pal
-    if t < 0.75:
-        return mix(edge, mid, (t / 0.75) ** 0.6)
-    return mix(mid, light, ((t - 0.75) / 0.25) ** 1.5)
+    # Soft shading: mostly the main colour, gentle edge, small highlight.
+    if t < 0.6:
+        return mix(edge, mid, (t / 0.6) ** 0.7)
+    return mix(mid, light, ((t - 0.6) / 0.4) ** 2 * 0.85)
 
 
 def tube_layers(pal, layers=28, light_shift=(0.0, 0.0)):
@@ -96,7 +98,7 @@ def build(style):
         g = [f'<g transform="translate({x:.1f},{y:.1f})" fill="none" '
              f'stroke-linecap="round" stroke-linejoin="round">']
         if style in ("tube", "tube-lit"):
-            shift = (-1.6, -1.2) if style == "tube-lit" else (0, 0)
+            shift = (-2.6, -2.0) if style == "tube-lit" else (0, 0)
             for w, col, dx, dy in tube_layers(PALETTES[key], light_shift=shift):
                 tr = f' transform="translate({dx:.2f},{dy:.2f})"' if (dx or dy) else ""
                 g.append(f'<path d="{path}" stroke="{col}" stroke-width="{w:.2f}"{tr}/>')
