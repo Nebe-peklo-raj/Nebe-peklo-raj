@@ -1009,3 +1009,64 @@ summary:focus-visible { outline-offset: calc(-1 * var(--focus-width)); }
 .profile__axis { fill: var(--color-text-muted); font: 0.75rem var(--font-body); }
 .page-toc { margin-top: var(--space-m); }
 .page-toc .cluster { list-style: none; margin: 0; padding: 0; gap: var(--space-2xs) var(--space-m); }
+
+/* =========================================================
+   Nebe Peklo Ráj – akcenty etap (patch k assets/styles.css)
+   ---------------------------------------------------------
+   Princip: modrá zůstává jedinou barvou značky. Červená (Peklo)
+   a zelená (Ráj) jsou jen „orientační značky“ tří míst trasy –
+   kolečko s číslem zastávky a bod na mapě. Žádné červené/zelené
+   nadpisy, tlačítka, pozadí ani odkazy.
+   Vložit na konec styles.css (nebo jako samostatný soubor po něm).
+   ========================================================= */
+
+/* 1. Tokeny – světlý režim
+   Odstíny vycházejí z původní palety majitele, upravené na WCAG AA:
+   – Nebe  #194FA2  bílá číslice 7.8:1, vůči bílé ploše 7.8:1
+   – Peklo #B92A2A  (= původní tmavá červená) bílá číslice 6.1:1
+   – Ráj   #2F7A12  (ztmavená #4DB21B, ta měla s bílou jen 2.7:1) bílá číslice 5.4:1,
+                    vůči podkladu stone-100 4.8:1                              */
+:root {
+  --palette-peklo-700: #B92A2A;
+  --palette-raj-700:   #2F7A12;
+
+  --color-stage-nebe:  var(--palette-brand-700);
+  --color-stage-peklo: var(--palette-peklo-700);
+  --color-stage-raj:   var(--palette-raj-700);
+  --color-stage-contrast: var(--palette-white);   /* číslice na kolečku */
+}
+
+/* 2. Tokeny – tmavý režim: světlé odstíny + tmavá číslice
+   – Nebe  #8DB4F0  číslice #0B1A33 8.2:1, vůči ploše #1B2230 7.5:1
+   – Peklo #F2908A  číslice 7.6:1, vůči ploše 6.9:1
+   – Ráj   #7FD65A  číslice 9.7:1, vůči ploše 8.9:1                      */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-stage-nebe:  #8DB4F0;
+    --color-stage-peklo: #F2908A;
+    --color-stage-raj:   #7FD65A;
+    --color-stage-contrast: #0B1A33;
+  }
+}
+
+/* 3. Zastávky trasy (index.html #pribeh, trasa.html #body):
+      jen kolečko s číslem dostane barvu svého místa */
+.route__stop--nebe  { --stage: var(--color-stage-nebe); }
+.route__stop--peklo { --stage: var(--color-stage-peklo); }
+.route__stop--raj   { --stage: var(--color-stage-raj); }
+.route__stop[class*="route__stop--"]::before {
+  background: var(--stage);
+  color: var(--color-stage-contrast);
+}
+
+/* 4. Mapa trasy (trasa.html): body Nebe / Peklo / Ráj vyplněné barvou místa
+      (netextový prvek, kontrast vůči ploše ≥ 3:1). Linka trasy zůstává modrá. */
+.route-map__dot[class*="route-map__dot--"] { r: 11px; stroke: var(--color-surface); stroke-width: 3; }  /* větší bod – na mobilu byl r=7 skoro neviditelný */
+.route-map__dot--nebe  { fill: var(--color-stage-nebe); }
+.route-map__dot--peklo { fill: var(--color-stage-peklo); }
+.route-map__dot--raj   { fill: var(--color-stage-raj); }
+
+/* 5. Režim vysokého kontrastu (forced-colors) – barvy etap se vypnou */
+@media (forced-colors: active) {
+  .route__stop[class*="route__stop--"]::before { background: Canvas; color: CanvasText; }
+}
