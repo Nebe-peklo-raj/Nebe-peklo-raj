@@ -161,20 +161,20 @@
 /* 1b. Dark theme (optional – delete this block to stay light-only) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #121513;
-    --color-bg-alt: #1a1f1c;
-    --color-surface: #1e2420;
-    --color-text: #e9ebe6;
-    --color-text-muted: #aab1ab;          /* 7.9:1 on bg */
-    --color-heading: #f4f5f1;
+    --color-bg: #10141c;
+    --color-bg-alt: #161c27;
+    --color-surface: #1b2230;
+    --color-text: #e8ebf1;
+    --color-text-muted: #aab2c0;          /* 8.3:1 on bg */
+    --color-heading: #f3f5f9;
     --color-accent: #8db4f0;              /* 8.9:1 on bg */
     --color-accent-hover: #b6cff5;
     --color-accent-contrast: #0b1a33;
     --color-accent-soft: #1c2b45;
-    --color-border: #2f3632;
-    --color-border-strong: #4a534d;
+    --color-border: #2c3444;
+    --color-border-strong: #475166;
     --color-hero-bg: #13284a;
-    --color-hero-text: #f1f4f0;
+    --color-hero-text: #f1f4fa;
     --color-hero-muted: #b9c8e2;
     --color-info-bg: #16283a;
     --color-info-text: #a9cdee;
@@ -339,6 +339,7 @@ code, kbd { font-family: var(--font-mono); font-size: 0.9em; }
   text-decoration: none;
 }
 .site-header__brand:hover { color: var(--color-accent); }
+.site-header__brand picture { display: flex; flex: none; }
 .site-header__logo { width: 2rem; height: 2rem; flex: none; }
 
 .site-nav { display: contents; }
