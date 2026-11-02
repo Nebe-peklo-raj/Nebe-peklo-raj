@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Nebe Peklo Ráj · Designer B · R2 · B2-1 „Pečeť“ – nápis nahoře, reliéf napojený na kruh (font Barlow Condensed Bold, Google Fonts) -->
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&amp;display=swap');</style>
+    <path id="npr-b21" d="M18.5 60 A41.5 41.5 0 0 1 101.5 60"/>
+  </defs>
+  <g fill="none" stroke="#194FA2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="60" cy="60" r="55" stroke-width="6"/>
+    <path stroke-width="5.5" d="M9.59 82 L21.28 82 C26.56 81.56 28.32 72.32 32.72 70.12 C35.36 68.8 38 69.24 40.2 71.44 C41.96 73.2 42.84 75.84 43.28 78.48 C44.16 87.28 44.6 96.08 45.48 101.36 C46.18 105.76 48.3 105.76 49 101.36 C50.32 92.56 51.64 83.76 52.08 74.96 L52.08 55.6 C52.08 52.96 52.96 52.08 55.6 52.08 L58.24 51.02 C60.88 50.67 61.76 51.73 61.76 54.37 L61.76 67.04 C61.76 71 63.96 73.2 66.6 73.2 C69.24 73.2 71.44 71 71.44 67.04 L71.44 52.08 C71.44 49 72.76 47.68 75.84 47.68 L81.12 48.21 C84.2 48.56 85.52 49.88 85.52 52.96 L85.52 58.24 C85.52 60.88 86.4 61.76 88.6 61.76 C91.24 61.76 92.56 63.08 92.56 66.16 L92.56 76.72 C92.56 80.24 94.32 82 110.41 82"/>
+  </g>
+  <text fill="#194FA2" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="12" letter-spacing="1.4" text-anchor="middle"><textPath href="#npr-b21" startOffset="50%">NEBE · PEKLO · RÁJ</textPath></text>
+</svg>
