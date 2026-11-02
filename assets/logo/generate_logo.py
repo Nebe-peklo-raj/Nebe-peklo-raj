@@ -93,9 +93,9 @@ def build(style):
     placed, tw, th = layout()
     pad = 8
     parts = []
-    for c, key, x, y in placed:
+    for n, (c, key, x, y) in enumerate(placed):
         path = LETTERS[c][0]
-        g = [f'<g transform="translate({x:.1f},{y:.1f})" fill="none" '
+        g = [f'<g id="{key}-{n + 1}-{c}" transform="translate({x:.1f},{y:.1f})" fill="none" '
              f'stroke-linecap="round" stroke-linejoin="round">']
         if style in ("tube", "tube-lit"):
             shift = (-2.6, -2.0) if style == "tube-lit" else (0, 0)
