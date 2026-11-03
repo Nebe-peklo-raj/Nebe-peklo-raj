@@ -130,7 +130,7 @@ public class PreliminaryRouteTests
     [Fact]
     public void Real_config_rejects_attempt_before_launch()
     {
-        var t = new DateTimeOffset(2027, 1, 16, 4, 0, 0, TimeSpan.Zero);
+        var t = new DateTimeOffset(2027, 2, 28, 4, 0, 0, TimeSpan.Zero);
         var b = new TrackBuilder(RealRoute.Config.Start.Position, t).Walk(Route(0, 5_000), Kmh);
 
         var r = Validator().Validate([b.Build()], RouteVariant.Stage1);

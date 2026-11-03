@@ -1,6 +1,6 @@
 # Nebe Peklo Ráj
 
-FKT výzva z Nebeské Rybné přes Peklo do Českého ráje (cca 163 km). Spuštění leden 2027.
+FKT výzva z Nebeské Rybné přes Peklo do Českého ráje (cca 163 km). Spuštění březen 2027.
 
 Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Později poběží na ASP.NET a soubory se přesunou do `wwwroot`.
 
@@ -11,7 +11,7 @@ Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Poz
 | `index.html` | úvod, varianty, jak to funguje, časté otázky, waitlist (Tally) |
 | `trasa.html` | body trasy se souřadnicemi, mapa a výškový profil, etapy, koridor, bezpečnost |
 | `pravidla.html` | pravidla v1: čas, styly, pauzy, GPX, všechny otázky |
-| `zebricek.html` | připravujeme (spuštění leden 2027) |
+| `zebricek.html` | připravujeme (spuštění březen 2027) |
 | `kontakt.html` | kdo za tím stojí, kontakt, info pro média |
 | `ochrana-udaju.html` | zásady ochrany osobních údajů k waitlistu |
 | `404.html` | stránka nenalezena |

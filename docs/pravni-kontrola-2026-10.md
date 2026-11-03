@@ -1,12 +1,10 @@
-> **Aktualizace 3. 11. 2026 – posun spuštění na leden 2027.** Spolupracovník s 3D tiskárnou dovrší 18 let 17. 1. 2027, takže od tohoto dne může být za živnost, platby a medaile zodpovědná zletilá osoba. Spuštění se proto posouvá z května na leden 2027 (`acceptFrom` = 2027-01-17). Termíny „květen 2027“ níže čti jako leden 2027. Co se tím mění:
-> - **Časová osa je o ~4 měsíce kratší.** Právník, domluva se správou Prachovských skal, neformální kontakt na Správu CHKO a Lesy ČR (bod 9) a finální GPX se musí stihnout do poloviny ledna.
-> - **Živnost** (část 5) může ohlásit až zletilý, tedy nejdřív 17. 1. 2027. Živnostenský list se vydává do 5 pracovních dnů, takže platby a prodej medailí nespouštěj dřív než po vzniku živnosti. Výzvu a žebříček zdarma to neblokuje.
-> - **Správce údajů.** Zásady ochrany údajů a kontakt jmenují jen Tobiáše Ottu. Jakmile bude provozovatelem i druhý společník, uprav „Správce“, kontakt, patičku a IČO.
-> - **Tlačítko pro odstoupení** má podle zdrojů platit od 1. 1. 2027, takže bude platit už při spuštění **[ověřit]**.
-> - **Zima.** První pokusy budou v zimě. trasa.html to nově zmiňuje.
-> - **Waitlist** se maže nejdéle 31. 12. 2027, což pořád sedí.
-
-> Poznámka: bod A3 (čísla) je vyřešený. Web používá čísla z předběžného GPX (163 / 48 / 114 km, +3 900 m), která nahrazují starší odhady z pravidel v1.
+> **Aktualizace 3. 11. 2026 – spuštění posunuto na březen 2027.** Spolupracovník s 3D tiskárnou dovrší 18 let 17. 1. 2027, takže od tohoto dne může být za živnost, platby a medaile zodpovědná zletilá osoba. Spuštění je naplánované na březen 2027 (`acceptFrom` = 2027-03-01), aby zbyla rezerva; datum jde kdykoli změnit v `data/challenge.json`. Termíny „květen 2027“ níže čti jako březen 2027.
+> - **Živnost** (část 5) jde ohlásit nejdřív 17. 1. 2027, živnostenský list do 5 pracovních dnů. Platby a medaile nespouštěj před vznikem živnosti.
+> - **Do března stihnout:** právník, domluva se správou Prachovských skal, kontakt na Správu CHKO a Lesy ČR (bod 9), finální GPX.
+> - **Správce údajů.** Zásady a kontakt zatím jmenují jen Tobiáše Ottu; druhého společníka na web zatím nedáváme. Až bude provozovatelem, uprav správce, kontakt, patičku a IČO.
+> - **Tlačítko pro odstoupení** má platit od 1. 1. 2027 **[ověřit]**.
+> - **Sníh:** v březnu může na hřebenech ještě ležet; trasa.html to zmiňuje.
+> - **Waitlist** se maže nejdéle 31. 12. 2027, což sedí.
 
 # Nebe Peklo Ráj – právní kontrola webu (stav 31. 10. 2026)
 
