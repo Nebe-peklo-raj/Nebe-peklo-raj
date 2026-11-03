@@ -6,6 +6,8 @@
 > - **Sníh:** v březnu může na hřebenech ještě ležet; trasa.html to zmiňuje.
 > - **Waitlist** se maže nejdéle 31. 12. 2027, což sedí.
 
+> Poznámka: bod A3 (čísla) je vyřešený. Web používá čísla z předběžného GPX (163 / 48 / 114 km, +3 900 m), která nahrazují starší odhady z pravidel v1.
+
 # Nebe Peklo Ráj – právní kontrola webu (stav 31. 10. 2026)
 
 > **Nejsem advokát.** Jde o rešerši a návrh textů, ne o právní radu. Před spuštěním plateb (květen 2027) ať to zkontroluje český advokát. Kde jsem si nebyl jistý nebo zdroj nebyl dostupný, je to označené **[ověřit]**.
