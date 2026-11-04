@@ -18,25 +18,28 @@
   <meta property="og:image:alt" content="Logo Nebe Peklo Ráj – 163 km z Nebeské Rybné do Českého ráje">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts.css?v=2">
-  <link rel="stylesheet" href="assets/styles.css?v=3">
+  <link rel="stylesheet" href="assets/styles.css?v=4">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/site.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-header__brand" href="index.html"><picture><source srcset="assets/logo/prstenec-svetly.svg" media="(prefers-color-scheme: dark)"><img class="site-header__logo" src="assets/logo/prstenec.svg" alt="" width="32" height="32"></picture>Nebe Peklo Ráj</a>
-      <nav class="site-nav" aria-label="Hlavní menu">
-        <input class="site-nav__toggle" type="checkbox" id="nav-toggle">
-        <label class="site-nav__button" for="nav-toggle">Menu</label>
+      <a class="brand" href="index.html"><img class="brand__logo" src="assets/logo/prstenec.svg" alt="" width="36" height="36">Nebe Peklo Ráj</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span>Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Hlavní menu">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="trasa.html">Trasa</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="pravidla.html">Pravidla</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="zebricek.html">Žebříček</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="faq.html">FAQ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="kontakt.html" aria-current="page">Kontakt</a></li>
-          <li class="site-nav__item"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
+          <li class="site-nav__item site-nav__item--cta"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
         </ul>
       </nav>
     </div>
@@ -45,33 +48,43 @@
   <main id="obsah">
     <header class="page-header">
       <div class="container">
+        <p class="eyebrow">Jeden člověk za projektem</p>
         <h1 class="page-header__title">Kontakt</h1>
-        <p class="page-header__lead">Kdo za tím stojí a jak se ozvat.</p>
+        <p class="page-header__lead">Máš dotaz, nápad nebo jsi narazil na problém na trase? Ozvi se přímo.</p>
       </div>
     </header>
 
-    <section class="section">
-      <div class="container container--narrow prose">
-        <h2 class="section__title">Kdo za tím stojí</h2>
-        <p>Za výzvou Nebe Peklo Ráj stojí Tobiáš Otta. Vymyslel trasu, napsal pravidla a stará se o web i žebříček. Není za tím velká firma ani sponzor, jen nápad spojit tři místa se skvělými jmény do jedné poctivé výzvy. Komunita teprve vzniká, a proto stojí o každý podnět: chybu v trase, nejasné pravidlo i nápad na zlepšení.</p>
-        <p class="lead"><a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a></p>
-        <p>Napiš třeba kvůli:</p>
-        <ul>
-          <li>dotazům k pravidlům nebo trase,</li>
-          <li>uzavírce nebo objížďce, na kterou jsi narazil,</li>
-          <li>médiím, spolupráci a partnerství.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="media">
-      <div class="container container--narrow prose">
-        <h2 class="section__title">Pro média a partnery</h2>
-        <p>Píšete o výzvě, nebo ji chcete podpořit? Ozvěte se na stejný e-mail.</p>
-        <div class="callout callout--info" role="note">
-          <strong class="callout__title">Ve zkratce</strong>
-          <p>Nebe Peklo Ráj je trvalá FKT výzva, ne organizovaný závod. Vede cca 163 km z Nebeské Rybné přes údolí Peklo do Českého ráje, se dvěma etapami (cca 48 a 114 km). Kdokoliv ji může jít kdykoliv, čas se zapisuje podle GPX záznamu. Spuštění v květnu 2027. Pravidla: <a href="pravidla.html">Pravidla v1.1</a>.</p>
+    <section class="section" aria-labelledby="kdo-title">
+      <div class="container contact-grid">
+        <div>
+          <h2 id="kdo-title">Kdo za tím stojí</h2>
+          <div class="prose">
+            <p>Za výzvou Nebe Peklo Ráj stojí Tobiáš Otta. Vymyslel trasu, napsal pravidla a stará se o web i žebříček. Není za tím velká firma ani anonymní tým, jen chuť spojit tři skutečná místa se skvělými jmény do jedné poctivé výzvy.</p>
+            <p>Komunita teprve vzniká, a proto stojí o každý podnět: chybu v trase, nejasné pravidlo i nápad na zlepšení.</p>
+          </div>
+          <a class="contact-mail" href="mailto:tobiasotta@seznam.cz"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="4" width="17" height="12" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 5l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>tobiasotta@seznam.cz</a>
+          <p class="caps">Napiš třeba kvůli</p>
+          <ul class="tiles topic-grid">
+            <li><a class="tile" href="mailto:tobiasotta@seznam.cz?subject=Nebe%20Peklo%20R%C3%A1j%20%E2%80%93%20Trasa%20a%20pravidla"><strong class="tile__title">Trasa a pravidla</strong><span class="tile__route">Dotaz nebo návrh na úpravu.</span><span class="visually-hidden"> (napsat e-mail)</span></a></li>
+            <li><a class="tile" href="mailto:tobiasotta@seznam.cz?subject=Nebe%20Peklo%20R%C3%A1j%20%E2%80%93%20Uzav%C3%ADrka"><strong class="tile__title">Uzavírky</strong><span class="tile__route">Objížďka nebo problém v terénu.</span><span class="visually-hidden"> (napsat e-mail)</span></a></li>
+            <li><a class="tile" href="mailto:tobiasotta@seznam.cz?subject=Nebe%20Peklo%20R%C3%A1j%20%E2%80%93%20M%C3%A9dia"><strong class="tile__title">Média</strong><span class="tile__route">Informace k projektu a výzvě.</span><span class="visually-hidden"> (napsat e-mail)</span></a></li>
+            <li><a class="tile" href="mailto:tobiasotta@seznam.cz?subject=Nebe%20Peklo%20R%C3%A1j%20%E2%80%93%20Spolupr%C3%A1ce"><strong class="tile__title">Spolupráce</strong><span class="tile__route">Partnerství a podpora.</span><span class="visually-hidden"> (napsat e-mail)</span></a></li>
+          </ul>
         </div>
+
+        <aside class="panel" id="media" aria-labelledby="media-title">
+          <p class="eyebrow">Pro média a partnery</p>
+          <h2 id="media-title">Jedna cesta. Tři skutečná místa.</h2>
+          <p class="muted">Nebe Peklo Ráj je trvalá FKT výzva, ne organizovaný závod. Vede cca 163 km z Nebeské Rybné přes údolí Peklo do Českého ráje, se dvěma etapami (cca 48 a 114 km). Kdokoliv ji může jít kdykoliv, čas se zapisuje podle GPX záznamu. Spuštění v květnu 2027.</p>
+          <hr>
+          <ul class="stats stats--plain stats--row">
+            <li class="stats__item"><span class="stats__value">163 km</span><span class="stats__label caps">Celkem</span></li>
+            <li class="stats__item"><span class="stats__value">2</span><span class="stats__label caps">Etapy</span></li>
+            <li class="stats__item"><span class="stats__value">2027</span><span class="stats__label caps">Spuštění</span></li>
+          </ul>
+          <p class="mt-l">Píšete o výzvě, nebo ji chcete podpořit? Ozvěte se na stejný e-mail.</p>
+          <a class="button button--outline button--block" href="pravidla.html">Zobrazit pravidla v1.1</a>
+        </aside>
       </div>
     </section>
   </main>
@@ -79,27 +92,30 @@
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__title">Nebe Peklo Ráj</p>
-          <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+        <div class="site-footer__brand">
+          <img class="site-footer__seal" src="assets/logo/pecet-inverz.svg" alt="" width="88" height="88" loading="lazy">
+          <div>
+            <p class="site-footer__name">Nebe Peklo Ráj</p>
+            <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+          </div>
         </div>
-        <div>
-          <p class="site-footer__title">Výzva</p>
+        <nav aria-labelledby="footer-vyzva">
+          <p class="site-footer__title" id="footer-vyzva">Výzva</p>
           <ul class="site-footer__list">
             <li><a href="trasa.html">Trasa</a></li>
             <li><a href="pravidla.html">Pravidla</a></li>
             <li><a href="zebricek.html">Žebříček</a></li>
             <li><a href="faq.html">Časté otázky</a></li>
           </ul>
-        </div>
-        <div>
-          <p class="site-footer__title">Info</p>
+        </nav>
+        <nav aria-labelledby="footer-info">
+          <p class="site-footer__title" id="footer-info">Info</p>
           <ul class="site-footer__list">
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="trasa.html#bezpecnost">Bezpečnost</a></li>
             <li><a href="ochrana-udaju.html">Ochrana osobních údajů</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="site-footer__bottom">
         <p>© 2026 Nebe Peklo Ráj · Pravidla v1.1 · <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a></p>

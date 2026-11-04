@@ -18,8 +18,12 @@
   <meta property="og:image:alt" content="Logo Nebe Peklo Ráj – 163 km z Nebeské Rybné do Českého ráje">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts.css?v=2">
-  <link rel="stylesheet" href="assets/styles.css?v=3">
+  <link rel="stylesheet" href="assets/styles.css?v=4">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/site.js?v=1" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Nebe Peklo Ráj","url":"https://polik9000.github.io/Nebe-peklo-raj/","inLanguage":"cs"}</script>
 </head>
 <body>
@@ -27,166 +31,167 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-header__brand" href="index.html"><picture><source srcset="assets/logo/prstenec-svetly.svg" media="(prefers-color-scheme: dark)"><img class="site-header__logo" src="assets/logo/prstenec.svg" alt="" width="32" height="32"></picture>Nebe Peklo Ráj</a>
-      <nav class="site-nav" aria-label="Hlavní menu">
-        <input class="site-nav__toggle" type="checkbox" id="nav-toggle">
-        <label class="site-nav__button" for="nav-toggle">Menu</label>
+      <a class="brand" href="index.html"><img class="brand__logo" src="assets/logo/prstenec.svg" alt="" width="36" height="36">Nebe Peklo Ráj</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span>Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Hlavní menu">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="trasa.html">Trasa</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="pravidla.html">Pravidla</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="zebricek.html">Žebříček</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="faq.html">FAQ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="kontakt.html">Kontakt</a></li>
-          <li class="site-nav__item"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
+          <li class="site-nav__item site-nav__item--cta"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="obsah">
-    <section class="hero">
-      <div class="container">
-        <p class="hero__eyebrow">FKT výzva · spuštění květen 2027</p>
-        <h1 class="hero__title">Z Nebe přes Peklo do Ráje. Po svých.</h1>
-        <p class="hero__lead">Cca 163 km a 3&nbsp;900 m nahoru z Nebeské Rybné do Českého ráje. Vyrazíš, kdy chceš. Hodinky nebo telefon měří. Žebříček rozhodne.</p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#waitlist">Chci vědět o startu</a>
-          <a class="button button--secondary" href="trasa.html">Prohlédnout trasu</a>
+    <section class="hero on-dark" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div>
+          <p class="eyebrow">FKT výzva · spuštění květen 2027</p>
+          <h1 class="hero__title" id="hero-title">Z Nebe přes Peklo do Ráje. Po svých.</h1>
+          <p class="hero__lead">Cca 163 km a 3&nbsp;900 m nahoru z Orlických hor do Českého ráje. Vyrazíš, kdy chceš. Hodinky nebo telefon měří. Žebříček rozhodne.</p>
+          <div class="actions hero__actions">
+            <a class="button" href="#waitlist">Chci vědět o startu</a>
+            <a class="button button--outline" href="trasa.html">Prohlédnout trasu</a>
+          </div>
+          <p class="hero__note">Trasa i GPX zdarma.</p>
         </div>
-        <p class="hero__note">Trasa i GPX zdarma. Spouštíme v květnu 2027.</p>
+        <div>
+<!-- ROUTE:hero-profile -->
+<figure class="profile-hero">
+  <figcaption class="profile-hero__head"><span>Předběžný výškový profil</span><span>0 — 163 km</span></figcaption>
+  <div class="profile-hero__plot">
+    <svg viewBox="0 0 1000 300" preserveAspectRatio="none" role="img" aria-labelledby="hero-profile-title">
+      <title id="hero-profile-title">Výškový profil trasy: start v Nebi, Peklo po cca 48 km, cíl v Ráji po cca 163 km. Nadmořská výška 280 až 1100 m.</title>
+      <g class="profile-hero__grid"><line x1="0" x2="1000" y1="75" y2="75"/><line x1="0" x2="1000" y1="150" y2="150"/><line x1="0" x2="1000" y1="225" y2="225"/></g>
+      <path class="profile-hero__area" d="M0,300 L0,182.5 L2.5,179.8 L4.9,177.7 L7.4,173.7 L9.8,167.1 L12.3,159.4 L14.8,154.6 L17.2,151.1 L19.7,149.6 L22.1,148.7 L24.6,148.1 L27.1,149.6 L29.5,149.1 L32,144 L34.4,132.7 L36.9,121.6 L39.4,111.7 L41.8,102.3 L44.3,90.1 L46.7,81.2 L49.2,70.1 L51.7,61.3 L54.1,55.4 L56.6,53.9 L59,52.3 L61.5,51.5 L64,52.1 L66.4,59.2 L68.9,61.6 L71.3,63.1 L73.8,62.4 L76.3,60.8 L78.7,58.8 L81.2,55.5 L83.6,50.9 L86.1,46.2 L88.5,44.5 L91,44 L93.5,44.1 L95.9,43.1 L98.4,39.3 L100.8,37.8 L103.3,37.2 L105.8,35.6 L108.2,34.6 L110.7,37.2 L113.1,42.5 L115.6,47.9 L118.1,51.4 L120.5,54.5 L123,55.9 L125.4,57.9 L127.9,60.2 L130.4,60.2 L132.8,58.5 L135.3,58.3 L137.7,57.8 L140.2,55.7 L142.7,51.7 L145.1,48.9 L147.6,47.6 L150,50 L152.5,53.9 L155,58.1 L157.4,68.9 L159.9,77.5 L162.3,87.7 L164.8,98.8 L167.3,115.6 L169.7,126.2 L172.2,144.5 L174.6,156.1 L177.1,160.9 L179.6,161.1 L182,162.3 L184.5,165.4 L186.9,165.6 L189.4,164.4 L191.9,163.6 L194.3,162.8 L196.8,158.5 L199.2,150.8 L201.7,146.2 L204.2,145.7 L206.6,145.3 L209.1,145.6 L211.5,146.2 L214,147.4 L216.5,148.3 L218.9,149.6 L221.4,152.5 L223.8,159.7 L226.3,167.9 L228.8,176 L231.2,180.7 L233.7,183.6 L236.1,184.8 L238.6,183.8 L241.1,180.5 L243.5,176.9 L246,176.3 L248.4,177.4 L250.9,182.9 L253.4,188.1 L255.8,194.6 L258.3,201.6 L260.7,206.9 L263.2,211.5 L265.6,215.3 L268.1,222.7 L270.6,227.3 L273,230.7 L275.5,233 L277.9,236.3 L280.4,238.9 L282.9,242.1 L285.3,245.4 L287.8,249.6 L290.2,253.2 L292.7,253.9 L295.2,251.6 L297.6,246.4 L300.1,238.6 L302.5,228.1 L305,215.9 L307.5,197.6 L309.9,189.1 L312.4,188.4 L314.8,190.5 L317.3,196.1 L319.8,202 L322.2,211 L324.7,221.7 L327.1,231.3 L329.6,238.5 L332.1,244.1 L334.5,245.8 L337,246.8 L339.4,245.2 L341.9,240.3 L344.4,235.7 L346.8,230.2 L349.3,228.3 L351.7,228 L354.2,229.5 L356.7,232.4 L359.1,237 L361.6,241 L364,245.3 L366.5,247.5 L369,251.3 L371.4,252.7 L373.9,255.2 L376.3,256.9 L378.8,257.6 L381.3,259.7 L383.7,264 L386.2,266.9 L388.6,269.9 L391.1,271.6 L393.6,272.7 L396,273.6 L398.5,274.1 L400.9,274.5 L403.4,274.6 L405.9,274.4 L408.3,274 L410.8,272.5 L413.2,270.5 L415.7,267.9 L418.2,267.7 L420.6,267.1 L423.1,266.5 L425.5,266.2 L428,267.4 L430.5,269.1 L432.9,268.4 L435.4,266.4 L437.8,262.5 L440.3,259.6 L442.7,258.9 L445.2,258.5 L447.7,256.8 L450.1,256 L452.6,257.7 L455,260.8 L457.5,261.3 L460,261.3 L462.4,262 L464.9,262.2 L467.3,262.3 L469.8,262.2 L472.3,261.2 L474.7,259.9 L477.2,257.2 L479.6,255.2 L482.1,251.6 L484.6,248.7 L487,245.4 L489.5,241 L491.9,236 L494.4,232.6 L496.9,230.4 L499.3,227.8 L501.8,222 L504.2,220.5 L506.7,220.5 L509.2,220.3 L511.6,219.8 L514.1,217.4 L516.5,216.4 L519,213.1 L521.5,209.9 L523.9,206.4 L526.4,204.6 L528.8,204.4 L531.3,205.7 L533.8,207.7 L536.2,209.7 L538.7,210.6 L541.1,212.3 L543.6,215.1 L546.1,217.4 L548.5,218.3 L551,218.2 L553.4,215.8 L555.9,212.7 L558.4,208.9 L560.8,204.1 L563.3,200.5 L565.7,195.4 L568.2,190.3 L570.7,187.3 L573.1,184.1 L575.6,183.3 L578,184.5 L580.5,185.6 L583,193.3 L585.4,196.7 L587.9,199.2 L590.3,207.2 L592.8,212.8 L595.3,213.7 L597.7,215.3 L600.2,217 L602.6,217.5 L605.1,217.9 L607.5,217.9 L610,217.4 L612.5,216.6 L614.9,214.5 L617.4,213.5 L619.8,213.3 L622.3,213.4 L624.8,214 L627.2,215.5 L629.7,216.4 L632.1,215.9 L634.6,215.5 L637.1,215 L639.5,214.4 L642,212.4 L644.4,211 L646.9,209.5 L649.4,208.8 L651.8,207.6 L654.3,207 L656.7,206.3 L659.2,206.9 L661.7,212.4 L664.1,215.7 L666.6,221.3 L669,232.7 L671.5,241.9 L674,248.8 L676.4,254.2 L678.9,256.3 L681.3,256.8 L683.8,258.8 L686.3,260.7 L688.7,259.9 L691.2,257.8 L693.6,256.5 L696.1,255.8 L698.6,254.4 L701,252.8 L703.5,250.8 L705.9,246.6 L708.4,242.2 L710.9,235.8 L713.3,227.9 L715.8,219.6 L718.2,212 L720.7,202.7 L723.2,193 L725.6,186.1 L728.1,178.6 L730.5,175.9 L733,174.1 L735.5,175.5 L737.9,182.1 L740.4,186.7 L742.8,190.6 L745.3,195.6 L747.8,201.6 L750.2,208 L752.7,218 L755.1,222 L757.6,225 L760.1,227.1 L762.5,228.3 L765,227.7 L767.4,223.9 L769.9,221.7 L772.4,220.4 L774.8,220.9 L777.3,224.3 L779.7,230.4 L782.2,234.4 L784.6,236.2 L787.1,236.1 L789.6,237.3 L792,240.4 L794.5,241.2 L796.9,239.2 L799.4,237.9 L801.9,236.8 L804.3,235.8 L806.8,230.5 L809.2,224.6 L811.7,219.8 L814.2,218.7 L816.6,217.9 L819.1,217.4 L821.5,217.9 L824,221.2 L826.5,225 L828.9,228.1 L831.4,229.6 L833.8,228 L836.3,225.6 L838.8,223.4 L841.2,219.8 L843.7,216.1 L846.1,211.4 L848.6,208.4 L851.1,207.6 L853.5,206.9 L856,206.4 L858.4,205.7 L860.9,204.5 L863.4,202.1 L865.8,201.5 L868.3,201.7 L870.7,202.2 L873.2,203.5 L875.7,205.8 L878.1,211.1 L880.6,215.2 L883,220.2 L885.5,224.6 L888,230.1 L890.4,235.3 L892.9,242.4 L895.3,249.5 L897.8,252.2 L900.3,252.2 L902.7,249.4 L905.2,244.9 L907.6,240 L910.1,234.6 L912.6,224.8 L915,214.4 L917.5,201.6 L919.9,192.8 L922.4,184.7 L924.9,180.6 L927.3,178.7 L929.8,180.3 L932.2,185.8 L934.7,192.4 L937.2,199.9 L939.6,211.9 L942.1,221.6 L944.5,230.2 L947,235.1 L949.5,238.1 L951.9,239.6 L954.4,240.9 L956.8,244.2 L959.3,247 L961.7,250 L964.2,251.9 L966.7,254.2 L969.1,256 L971.6,257.8 L974,259.5 L976.5,262.4 L979,262.1 L981.4,261 L983.9,258.7 L986.3,255.3 L988.8,251.4 L991.3,248.3 L993.7,246 L996.2,243.4 L998.6,241.3 L1000,240.7 L1000,300 Z"/>
+      <polyline class="profile-hero__line" points="0,182.5 2.5,179.8 4.9,177.7 7.4,173.7 9.8,167.1 12.3,159.4 14.8,154.6 17.2,151.1 19.7,149.6 22.1,148.7 24.6,148.1 27.1,149.6 29.5,149.1 32,144 34.4,132.7 36.9,121.6 39.4,111.7 41.8,102.3 44.3,90.1 46.7,81.2 49.2,70.1 51.7,61.3 54.1,55.4 56.6,53.9 59,52.3 61.5,51.5 64,52.1 66.4,59.2 68.9,61.6 71.3,63.1 73.8,62.4 76.3,60.8 78.7,58.8 81.2,55.5 83.6,50.9 86.1,46.2 88.5,44.5 91,44 93.5,44.1 95.9,43.1 98.4,39.3 100.8,37.8 103.3,37.2 105.8,35.6 108.2,34.6 110.7,37.2 113.1,42.5 115.6,47.9 118.1,51.4 120.5,54.5 123,55.9 125.4,57.9 127.9,60.2 130.4,60.2 132.8,58.5 135.3,58.3 137.7,57.8 140.2,55.7 142.7,51.7 145.1,48.9 147.6,47.6 150,50 152.5,53.9 155,58.1 157.4,68.9 159.9,77.5 162.3,87.7 164.8,98.8 167.3,115.6 169.7,126.2 172.2,144.5 174.6,156.1 177.1,160.9 179.6,161.1 182,162.3 184.5,165.4 186.9,165.6 189.4,164.4 191.9,163.6 194.3,162.8 196.8,158.5 199.2,150.8 201.7,146.2 204.2,145.7 206.6,145.3 209.1,145.6 211.5,146.2 214,147.4 216.5,148.3 218.9,149.6 221.4,152.5 223.8,159.7 226.3,167.9 228.8,176 231.2,180.7 233.7,183.6 236.1,184.8 238.6,183.8 241.1,180.5 243.5,176.9 246,176.3 248.4,177.4 250.9,182.9 253.4,188.1 255.8,194.6 258.3,201.6 260.7,206.9 263.2,211.5 265.6,215.3 268.1,222.7 270.6,227.3 273,230.7 275.5,233 277.9,236.3 280.4,238.9 282.9,242.1 285.3,245.4 287.8,249.6 290.2,253.2 292.7,253.9 295.2,251.6 297.6,246.4 300.1,238.6 302.5,228.1 305,215.9 307.5,197.6 309.9,189.1 312.4,188.4 314.8,190.5 317.3,196.1 319.8,202 322.2,211 324.7,221.7 327.1,231.3 329.6,238.5 332.1,244.1 334.5,245.8 337,246.8 339.4,245.2 341.9,240.3 344.4,235.7 346.8,230.2 349.3,228.3 351.7,228 354.2,229.5 356.7,232.4 359.1,237 361.6,241 364,245.3 366.5,247.5 369,251.3 371.4,252.7 373.9,255.2 376.3,256.9 378.8,257.6 381.3,259.7 383.7,264 386.2,266.9 388.6,269.9 391.1,271.6 393.6,272.7 396,273.6 398.5,274.1 400.9,274.5 403.4,274.6 405.9,274.4 408.3,274 410.8,272.5 413.2,270.5 415.7,267.9 418.2,267.7 420.6,267.1 423.1,266.5 425.5,266.2 428,267.4 430.5,269.1 432.9,268.4 435.4,266.4 437.8,262.5 440.3,259.6 442.7,258.9 445.2,258.5 447.7,256.8 450.1,256 452.6,257.7 455,260.8 457.5,261.3 460,261.3 462.4,262 464.9,262.2 467.3,262.3 469.8,262.2 472.3,261.2 474.7,259.9 477.2,257.2 479.6,255.2 482.1,251.6 484.6,248.7 487,245.4 489.5,241 491.9,236 494.4,232.6 496.9,230.4 499.3,227.8 501.8,222 504.2,220.5 506.7,220.5 509.2,220.3 511.6,219.8 514.1,217.4 516.5,216.4 519,213.1 521.5,209.9 523.9,206.4 526.4,204.6 528.8,204.4 531.3,205.7 533.8,207.7 536.2,209.7 538.7,210.6 541.1,212.3 543.6,215.1 546.1,217.4 548.5,218.3 551,218.2 553.4,215.8 555.9,212.7 558.4,208.9 560.8,204.1 563.3,200.5 565.7,195.4 568.2,190.3 570.7,187.3 573.1,184.1 575.6,183.3 578,184.5 580.5,185.6 583,193.3 585.4,196.7 587.9,199.2 590.3,207.2 592.8,212.8 595.3,213.7 597.7,215.3 600.2,217 602.6,217.5 605.1,217.9 607.5,217.9 610,217.4 612.5,216.6 614.9,214.5 617.4,213.5 619.8,213.3 622.3,213.4 624.8,214 627.2,215.5 629.7,216.4 632.1,215.9 634.6,215.5 637.1,215 639.5,214.4 642,212.4 644.4,211 646.9,209.5 649.4,208.8 651.8,207.6 654.3,207 656.7,206.3 659.2,206.9 661.7,212.4 664.1,215.7 666.6,221.3 669,232.7 671.5,241.9 674,248.8 676.4,254.2 678.9,256.3 681.3,256.8 683.8,258.8 686.3,260.7 688.7,259.9 691.2,257.8 693.6,256.5 696.1,255.8 698.6,254.4 701,252.8 703.5,250.8 705.9,246.6 708.4,242.2 710.9,235.8 713.3,227.9 715.8,219.6 718.2,212 720.7,202.7 723.2,193 725.6,186.1 728.1,178.6 730.5,175.9 733,174.1 735.5,175.5 737.9,182.1 740.4,186.7 742.8,190.6 745.3,195.6 747.8,201.6 750.2,208 752.7,218 755.1,222 757.6,225 760.1,227.1 762.5,228.3 765,227.7 767.4,223.9 769.9,221.7 772.4,220.4 774.8,220.9 777.3,224.3 779.7,230.4 782.2,234.4 784.6,236.2 787.1,236.1 789.6,237.3 792,240.4 794.5,241.2 796.9,239.2 799.4,237.9 801.9,236.8 804.3,235.8 806.8,230.5 809.2,224.6 811.7,219.8 814.2,218.7 816.6,217.9 819.1,217.4 821.5,217.9 824,221.2 826.5,225 828.9,228.1 831.4,229.6 833.8,228 836.3,225.6 838.8,223.4 841.2,219.8 843.7,216.1 846.1,211.4 848.6,208.4 851.1,207.6 853.5,206.9 856,206.4 858.4,205.7 860.9,204.5 863.4,202.1 865.8,201.5 868.3,201.7 870.7,202.2 873.2,203.5 875.7,205.8 878.1,211.1 880.6,215.2 883,220.2 885.5,224.6 888,230.1 890.4,235.3 892.9,242.4 895.3,249.5 897.8,252.2 900.3,252.2 902.7,249.4 905.2,244.9 907.6,240 910.1,234.6 912.6,224.8 915,214.4 917.5,201.6 919.9,192.8 922.4,184.7 924.9,180.6 927.3,178.7 929.8,180.3 932.2,185.8 934.7,192.4 937.2,199.9 939.6,211.9 942.1,221.6 944.5,230.2 947,235.1 949.5,238.1 951.9,239.6 954.4,240.9 956.8,244.2 959.3,247 961.7,250 964.2,251.9 966.7,254.2 969.1,256 971.6,257.8 974,259.5 976.5,262.4 979,262.1 981.4,261 983.9,258.7 986.3,255.3 988.8,251.4 991.3,248.3 993.7,246 996.2,243.4 998.6,241.3 1000,240.7"/>
+    </svg>
+    <span class="profile-hero__stop profile-hero__stop--nebe" style="left:0%;top:60.85%"><span class="profile-hero__label">Nebe</span></span><span class="profile-hero__stop profile-hero__stop--peklo" style="left:29.64%;top:83.86%"><span class="profile-hero__label">Peklo</span></span><span class="profile-hero__stop profile-hero__stop--raj" style="left:100%;top:80.23%"><span class="profile-hero__label">Ráj</span></span>
+  </div>
+  <div class="profile-hero__axis" aria-hidden="true"><span>0 km</span><span>80 km</span><span>163 km</span></div>
+  <div class="profile-hero__regions" aria-hidden="true"><span>Orlické hory</span><span>Český ráj</span></div>
+</figure>
+<!-- /ROUTE:hero-profile -->
+        </div>
       </div>
     </section>
 
-    <section class="section" id="pribeh">
+    <div class="stat-bar">
       <div class="container">
-        <h2 class="section__title">Tři jména. Jedna cesta.</h2>
-        <ol class="route">
-          <li class="route__stop route__stop--nebe">
-            <span class="route__label">Start</span>
-            <strong class="route__name">Nebe</strong>
-            <span class="route__place">Začínáš u kostela v Nebeské Rybné. Ráno, čerstvé nohy, hlava plná plánů. Před tebou hřebeny Orlických hor.</span>
-          </li>
-          <li class="route__stop route__stop--peklo">
-            <span class="route__label">Po cca 48 km</span>
-            <strong class="route__name">Peklo</strong>
-            <span class="route__place">Sestoupíš do údolí Peklo k Bartoňově útulně. Jméno zní hrozivě, místo je krásné. Háček je jinde: do cíle zbývá cca 114 km.</span>
-          </li>
-          <li class="route__stop route__stop--raj">
-            <span class="route__label">Cíl</span>
-            <strong class="route__name">Ráj</strong>
-            <span class="route__place">Cíl čeká u Turistické chaty pod Prachovskými skalami v Českém ráji. Kdo dojde, ví, proč se tomu tak říká.</span>
-          </li>
-        </ol>
-        <p class="note">Nebe, Peklo i Ráj jsou skutečná místa. Jejich pořadí jsme nevymysleli, jen jsme je spojili.</p>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="varianty">
-      <div class="container">
-        <h2 class="section__title">Vyber si variantu</h2>
-        <ul class="variants">
-          <li class="variants__item variants__item--featured">
-            <strong class="variants__name">Celá trasa</strong>
-            <span class="variants__route">Nebe → Peklo → Ráj</span>
-            <span class="variants__length">cca 163 km</span>
-            <span class="variants__meta">cca +3&nbsp;900 m</span>
-          </li>
-          <li class="variants__item">
-            <strong class="variants__name">Etapa 1</strong>
-            <span class="variants__route">Nebe → Peklo</span>
-            <span class="variants__length">cca 48 km</span>
-            <span class="variants__meta">cca +1&nbsp;350 m</span>
-          </li>
-          <li class="variants__item">
-            <strong class="variants__name">Etapa 2</strong>
-            <span class="variants__route">Peklo → Ráj</span>
-            <span class="variants__length">cca 114 km</span>
-            <span class="variants__meta">cca +2&nbsp;600 m</span>
-          </li>
+        <ul class="stats">
+          <li class="stats__item"><span class="stats__value">163 km</span><span class="stats__label caps">Celá trasa</span></li>
+          <li class="stats__item"><span class="stats__value">+3&nbsp;900 m</span><span class="stats__label caps">Celkové stoupání</span></li>
+          <li class="stats__item"><span class="stats__value">Květen 2027</span><span class="stats__label caps">Plánované spuštění</span></li>
         </ul>
-        <p class="note">Každá varianta má vlastní žebříček. Když jdeš celou trasu, tvoje časy etap se zapíšou i do žebříčků etap. <a href="trasa.html">Víc o trase</a></p>
+      </div>
+    </div>
+
+    <section class="section" id="pribeh" aria-labelledby="pribeh-title">
+      <div class="container">
+        <h2 class="section__title" id="pribeh-title">Tři jména. Jedna cesta.</h2>
+        <ol class="stops stops--row">
+          <li class="stop stop--nebe">
+            <span class="stop__num" aria-hidden="true">01</span>
+            <span class="caps">Start</span>
+            <strong class="stop__name">Nebe</strong>
+            <span class="stop__text">Začínáš u kostela v Nebeské Rybné. Ráno, čerstvé nohy, hlava plná plánů. Před tebou hřebeny Orlických hor.</span>
+          </li>
+          <li class="stop stop--peklo">
+            <span class="stop__num" aria-hidden="true">02</span>
+            <span class="caps">Po cca 48 km</span>
+            <strong class="stop__name">Peklo</strong>
+            <span class="stop__text">Sestoupíš do údolí Peklo k Bartoňově útulně. Jméno zní hrozivě, místo je krásné. Háček je jinde: do cíle zbývá cca 114 km.</span>
+          </li>
+          <li class="stop stop--raj">
+            <span class="stop__num" aria-hidden="true">03</span>
+            <span class="caps">Cíl</span>
+            <strong class="stop__name">Ráj</strong>
+            <span class="stop__text">Cíl čeká u Turistické chaty pod Prachovskými skalami v Českém ráji. Kdo dojde, ví, proč se tomu tak říká.</span>
+          </li>
+        </ol>
+        <p class="note mt-l mb-0">Nebe, Peklo i Ráj jsou skutečná místa. Jejich pořadí jsme nevymysleli, jen jsme je spojili.</p>
       </div>
     </section>
 
-    <section class="section" id="jak-to-funguje">
+    <section class="section section--flush-top" id="varianty" aria-labelledby="varianty-title">
+      <div class="container intro-split">
+        <div>
+          <h2 class="section__title" id="varianty-title">Vyber si variantu</h2>
+          <ul class="tiles tiles--3">
+            <li><a class="tile" href="trasa.html#etapy"><strong class="tile__title">Celá trasa</strong><span class="tile__route">Nebe → Peklo → Ráj</span><span class="tile__meta">cca 163 km · +3&nbsp;900 m</span></a></li>
+            <li><a class="tile" href="trasa.html#etapy"><strong class="tile__title">Etapa 1</strong><span class="tile__route">Nebe → Peklo</span><span class="tile__meta">cca 48 km · +1&nbsp;350 m</span></a></li>
+            <li><a class="tile" href="trasa.html#etapy"><strong class="tile__title">Etapa 2</strong><span class="tile__route">Peklo → Ráj</span><span class="tile__meta">cca 114 km · +2&nbsp;600 m</span></a></li>
+          </ul>
+          <p class="note mt-l mb-0">Každá varianta má vlastní žebříček. Když jdeš celou trasu, tvoje časy etap se zapíšou i do žebříčků etap.</p>
+        </div>
+        <div class="cta-band">
+          <div>
+            <p class="cta-band__title">Žádný závod. Vyrazíš, kdy chceš.</p>
+            <p class="cta-band__text">Přihlášení k odběru novinek ti připomene start.</p>
+          </div>
+          <a class="button" href="#waitlist">Waitlist</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jak-to-funguje" aria-labelledby="jak-title">
       <div class="container">
-        <h2 class="section__title">Jak to funguje</h2>
-        <ol class="steps steps--row">
-          <li class="steps__item"><strong>Vyraz, kdy chceš.</strong> Žádný hromadný start, žádné hlášení předem. Zapni záznam v hodinkách nebo v telefonu.</li>
-          <li class="steps__item"><strong>Projdi nebo proběhni trasu.</strong> Jedním směrem, po oficiální GPX stopě. Pauzy jsou povolené, hodiny ale běží.</li>
-          <li class="steps__item"><strong>Nahraj GPX.</strong> Kdykoli po dokončení. Tvůj čas se objeví v žebříčku. <span class="badge badge--soon">od května 2027</span></li>
+        <h2 class="section__title" id="jak-title">Jak to funguje</h2>
+        <ol class="numbered numbered--row">
+          <li class="numbered__item"><div><strong class="numbered__title">Vyraz, kdy chceš.</strong><span class="numbered__text">Žádný hromadný start, žádné hlášení předem. Zapni záznam v hodinkách nebo v telefonu.</span></div></li>
+          <li class="numbered__item"><div><strong class="numbered__title">Projdi nebo proběhni trasu.</strong><span class="numbered__text">Jedním směrem, po oficiální GPX stopě. Pauzy jsou povolené, hodiny ale běží.</span></div></li>
+          <li class="numbered__item"><div><strong class="numbered__title">Nahraj GPX.</strong><span class="numbered__text">Kdykoli po dokončení. Tvůj čas se objeví v žebříčku.</span><span class="status status--soon mt-l">Od května 2027</span></div></li>
         </ol>
       </div>
     </section>
 
-    <section class="section section--alt" id="pro-vsechny">
-      <div class="container">
-        <h2 class="section__title">Otevřeno pro všechny</h2>
-        <div class="grid grid--4">
-          <div class="card"><h3 class="card__title">Žádný limit</h3><p class="card__text">Spánek i pauzy se počítají do času, ale nikdo tě nevyhodí.</p></div>
-          <div class="card"><h3 class="card__title">Stačí telefon</h3><p class="card__text">Hodinky, Stopař v Mapy.com, Strava. Jakýkoli GPX záznam s časem.</p></div>
-          <div class="card"><h3 class="card__title">Tvůj styl</h3><p class="card__text">Bez podpory (unsupported), na vlastní pěst (self-supported), nebo s podporou (supported). Každý styl má svůj žebříček.</p></div>
-          <div class="card"><h3 class="card__title">Věříme ti</h3><p class="card__text">Pravidla se vejdou na jednu obrazovku. Ručně kontrolujeme hlavně rekordy a sporné případy.</p></div>
+    <section class="section" id="pro-vsechny" aria-label="Pro koho je výzva">
+      <div class="container two-col">
+        <div>
+          <h2 class="section__title">Otevřeno pro všechny</h2>
+          <ul class="rows">
+            <li class="rows__item"><strong class="rows__title">Žádný limit</strong><span class="rows__text">Spánek i pauzy se počítají do času, ale nikdo tě nevyhodí.</span></li>
+            <li class="rows__item"><strong class="rows__title">Stačí telefon</strong><span class="rows__text">Hodinky, Stopař v Mapy.com, Strava. Jakýkoli GPX záznam s časem.</span></li>
+            <li class="rows__item"><strong class="rows__title">Tvůj styl</strong><span class="rows__text">Bez podpory (unsupported), na vlastní pěst (self-supported), nebo s podporou (supported). Každý styl má svůj žebříček.</span></li>
+            <li class="rows__item"><strong class="rows__title">Věříme ti</strong><span class="rows__text">Pravidla se vejdou na jednu obrazovku. Ručně kontrolujeme hlavně rekordy a sporné případy.</span></li>
+          </ul>
+        </div>
+        <div id="pro-koho">
+          <h2 class="section__title">Pro koho to je</h2>
+          <ul class="rows">
+            <li class="rows__item"><strong class="rows__title">Lovec rekordů</strong><span class="rows__text">Nová trasa, prázdný žebříček. Teď je ta chvíle zapsat první FKT.</span></li>
+            <li class="rows__item"><strong class="rows__title">Turista s velkým cílem</strong><span class="rows__text">Žádný limit, spíš po cestě. Důležité je dojít, ne kdy.</span></li>
+            <li class="rows__item"><strong class="rows__title">Kdo chce začít menším</strong><span class="rows__text">Etapa 1 má cca 48 km. Zkus si, jak chutná Peklo.</span></li>
+          </ul>
+          <p class="mt-l mb-0"><a href="faq.html">Časté otázky: co je FKT, kolik to stojí, čím nahrát záznam</a></p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="pro-koho">
-      <div class="container">
-        <h2 class="section__title">Pro koho to je</h2>
-        <div class="grid grid--3">
-          <div class="card"><h3 class="card__title">Lovec rekordů</h3><p class="card__text">Nová trasa, prázdný žebříček. Teď je ta chvíle zapsat první FKT.</p></div>
-          <div class="card"><h3 class="card__title">Turista s velkým cílem</h3><p class="card__text">Žádný limit, spíš po cestě. Důležité je dojít, ne kdy.</p></div>
-          <div class="card"><h3 class="card__title">Kdo chce začít menším</h3><p class="card__text">Etapa 1 má cca 48 km. Zkus si, jak chutná Peklo.</p></div>
+    <section class="section" id="waitlist" aria-labelledby="waitlist-title">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Waitlist</p>
+          <h2 class="section__title" id="waitlist-title">Buď u toho od prvního dne</h2>
+          <p>Výzvu spouštíme v květnu 2027. Nech nám e-mail a dáme ti vědět, jakmile půjde nahrát první čas. Pošleme taky finální GPX a pravidla, ať můžeš v klidu plánovat.</p>
+          <p>První časy v žebříčku budou zároveň první rekordy. Třeba ten tvůj.</p>
         </div>
-      </div>
-    </section>
+        <div>
+          <!-- TALLY: waitlist formulář (Tally, formulář aO9Yr9). Pro výměnu vlož nový embed kód sem. -->
+          <div class="form-embed">
+            <iframe data-tally-src="https://tally.so/embed/aO9Yr9?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Nebe Peklo Ráj – waitlist"></iframe>
+            <p class="form-embed__fallback">Formulář se nenačetl? <a href="https://tally.so/r/aO9Yr9">Otevři ho v novém okně</a>.</p>
+          </div>
+          <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
-    <section class="section section--alt" id="otazky">
-      <div class="container container--narrow">
-        <h2 class="section__title">Časté otázky</h2>
-        <div class="faq">
-          <details class="faq__item">
-            <summary class="faq__question">Co je FKT?</summary>
-            <div class="faq__answer"><p>Fastest Known Time, tedy nejrychlejší známý čas na dané trase. Žádný závod ani hromadný start. Každý jde, kdy chce, a časy se porovnávají podle GPX záznamu.</p></div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question">Kolik to stojí?</summary>
-            <div class="faq__answer"><p>Trasa i GPX jsou zdarma. Zápis do žebříčku bude placený, přesnou cenu oznámíme před spuštěním.</p></div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question">Musím to dát celé najednou?</summary>
-            <div class="faq__answer"><p>Nemusíš. Můžeš jít jen Etapu 1 (cca 48 km) nebo Etapu 2 (cca 114 km), každá má svůj žebříček. Dvě etapy zvlášť se ale do celé trasy nesčítají.</p></div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question">Je nějaký časový limit?</summary>
-            <div class="faq__answer"><p>Ne. Měří se celkový čas od startu do cíle včetně pauz a spánku.</p></div>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question">Čím mám záznam nahrát?</summary>
-            <div class="faq__answer"><p>Čímkoli, co ukládá GPX s časem: hodinky, Stopař v Mapy.com, Strava a podobně. Při pohybu bod aspoň každých 60 sekund, pauzy nevadí. Nahrát můžeš kdykoli, lhůta není.</p></div>
-          </details>
+          <p class="fineprint">
+            Napíšeme ti při spuštění výzvy a při důležitých změnách (finální GPX, pravidla, ceny). Každý náš e-mail bude mít odkaz pro odhlášení jedním klikem. Odhlásit se můžeš i kdykoli zprávou na <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a>. Údaje neprodáváme a nepředáváme pro marketing nikomu dalšímu. Formulář technicky zajišťuje služba Tally (Tally BV, Belgie, data v EU). Správce: Tobiáš Otta. Formulář je pro lidi od 15 let. Víc v <a href="ochrana-udaju.html">zásadách ochrany osobních údajů</a>.
+          </p>
         </div>
-        <p><a href="faq.html">Všechny otázky</a></p>
-      </div>
-    </section>
-
-    <section class="section" id="waitlist">
-      <div class="container container--narrow">
-        <h2 class="section__title">Buď u toho od prvního dne</h2>
-        <p>Výzvu spouštíme v květnu 2027. Nech nám e-mail a dáme ti vědět, jakmile půjde nahrát první čas. Pošleme taky finální GPX a pravidla, ať můžeš v klidu plánovat.</p>
-        <p>První časy v žebříčku budou zároveň první rekordy. Třeba ten tvůj.</p>
-
-        <!-- TALLY: waitlist formulář (Tally, formulář aO9Yr9). Pro výměnu vlož nový embed kód sem. -->
-        <div class="form-embed">
-          <iframe data-tally-src="https://tally.so/embed/aO9Yr9?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Nebe Peklo Ráj – waitlist"></iframe>
-          <p class="form-embed__fallback">Formulář se nenačetl? <a href="https://tally.so/r/aO9Yr9">Otevři ho v novém okně</a>.</p>
-        </div>
-        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-
-        <p class="gdpr">
-          Napíšeme ti při spuštění výzvy a při důležitých změnách (finální GPX, pravidla, ceny). Každý náš e-mail bude mít odkaz pro odhlášení jedním klikem. Odhlásit se můžeš i kdykoli zprávou na <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a>. Údaje neprodáváme a nepředáváme pro marketing nikomu dalšímu. Formulář technicky zajišťuje služba Tally (Tally BV, Belgie, data v EU). Správce: Tobiáš Otta. Formulář je pro lidi od 15 let. Víc v <a href="ochrana-udaju.html">zásadách ochrany osobních údajů</a>.
-        </p>
       </div>
     </section>
   </main>
@@ -194,27 +199,30 @@
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__title">Nebe Peklo Ráj</p>
-          <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+        <div class="site-footer__brand">
+          <img class="site-footer__seal" src="assets/logo/pecet-inverz.svg" alt="" width="88" height="88" loading="lazy">
+          <div>
+            <p class="site-footer__name">Nebe Peklo Ráj</p>
+            <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+          </div>
         </div>
-        <div>
-          <p class="site-footer__title">Výzva</p>
+        <nav aria-labelledby="footer-vyzva">
+          <p class="site-footer__title" id="footer-vyzva">Výzva</p>
           <ul class="site-footer__list">
             <li><a href="trasa.html">Trasa</a></li>
             <li><a href="pravidla.html">Pravidla</a></li>
             <li><a href="zebricek.html">Žebříček</a></li>
             <li><a href="faq.html">Časté otázky</a></li>
           </ul>
-        </div>
-        <div>
-          <p class="site-footer__title">Info</p>
+        </nav>
+        <nav aria-labelledby="footer-info">
+          <p class="site-footer__title" id="footer-info">Info</p>
           <ul class="site-footer__list">
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="trasa.html#bezpecnost">Bezpečnost</a></li>
             <li><a href="ochrana-udaju.html">Ochrana osobních údajů</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="site-footer__bottom">
         <p>© 2026 Nebe Peklo Ráj · Pravidla v1.1 · <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a></p>

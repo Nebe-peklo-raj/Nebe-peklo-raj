@@ -8,17 +8,26 @@ Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Poz
 
 | Soubor | Obsah |
 |---|---|
-| `index.html` | úvod, varianty, jak to funguje, časté otázky, waitlist (Tally) |
+| `index.html` | úvod s výškovým profilem, tři zastávky, varianty, jak to funguje, pro koho, waitlist (Tally) |
 | `trasa.html` | body trasy se souřadnicemi, mapa a výškový profil, etapy, koridor, bezpečnost |
-| `pravidla.html` | pravidla v1: čas, styly, pauzy, GPX, všechny otázky |
-| `zebricek.html` | připravujeme (spuštění květen 2027) |
+| `pravidla.html` | pravidla v1.1: shrnutí v 8 bodech, čas, styly, pauzy, GPX, historie změn |
+| `zebricek.html` | připravujeme: záložky variant, zatím neaktivní filtry, prázdná tabulka |
 | `kontakt.html` | kdo za tím stojí, kontakt, info pro média |
 | `ochrana-udaju.html` | zásady ochrany osobních údajů k waitlistu |
-| `404.html` | stránka nenalezena |
+| `faq.html` | časté otázky v 6 tématech |
+| `404.html` | stránka nenalezena (odkazy s absolutní cestou `/Nebe-peklo-raj/` kvůli GitHub Pages) |
 
 Hlavička a patička jsou v každé stránce zkopírované. Při změně menu je potřeba upravit všechny stránky.
 
-Mapa a výškový profil na `trasa.html` jsou SVG vygenerované z předběžného GPX. Po finální úpravě trasy je potřeba je vygenerovat znovu.
+`assets/site.js` (bez závislostí) ovládá mobilní menu, zvýraznění postranního obsahu a záložky Žebříčku. Bez JavaScriptu web funguje dál: menu je rovnou vidět a záložky jsou pod sebou.
+
+Mapa a výškové profily (`index.html`, `trasa.html`) generuje z `data/trasa.gpx` a `data/challenge.json` skript `scripts/route_svg.py` (jen standardní Python). Po změně trasy spusť v kořeni repa:
+
+```
+python3 scripts/route_svg.py
+```
+
+Skript přepíše obsah mezi značkami `<!-- ROUTE:… -->` a `<!-- /ROUTE:… -->`. Složka `scripts/` se na web nenasazuje.
 
 ## GPX parser
 
@@ -57,7 +66,7 @@ Testy: `dotnet test` v kořeni repa.
 3. Na konec přidej pole **Checkbox** se souhlasem, např. „Souhlasím se zasíláním informací o spuštění výzvy.“ a nastav ho jako povinné.
 4. **Publish** → **Share** → **Embed** → zvol **Standard** a zapni *Transparent background* a *Dynamic height*.
 5. Zkopíruj kód (`<iframe …>` a `<script …>`).
-6. V `index.html` najdi komentář `TALLY` a celý blok `<div class="form-placeholder">…</div>` nahraď zkopírovaným kódem.
+6. V `index.html` najdi komentář `TALLY` a obsah bloku `<div class="form-embed">…</div>` (iframe) a skript pod ním nahraď zkopírovaným kódem.
 
 Odpovědi pak najdeš v Tally v záložce **Submissions** a jdou exportovat do CSV.
 
@@ -67,4 +76,10 @@ Repo → **Settings** → **Pages** → *Source: Deploy from a branch* → věte
 
 ## Design
 
-Styl je schválně neutrální. Všechny barvy, písma, velikosti, rozestupy, zaoblení a stíny jsou proměnné v `:root` na začátku `assets/styles.css`. Návod, kterou proměnnou změnit podle Figmy, je v komentáři na začátku souboru. Třídy v HTML jsou pojmenované podle obsahu (`hero`, `route`, `variants`, `card`, …).
+Design V2 („turistický atlas“): bílé a teple šedé plochy, tenké linky, hranaté tvary, bez stínů a gradientů. Jen světlý režim. Rozhodnutí a rozdíly oproti PDF návrhu jsou v [docs/redesign-v2.md](docs/redesign-v2.md).
+
+- Barvy, písma, velikosti a rozestupy jsou proměnné v `:root` na začátku `assets/styles.css`. Komponenty používají jen je.
+- Modrá `#194FA2` / `#0F3470` je barva značky. Červená `#B92A2A` (Peklo) a zelená `#2F7A12` (Ráj) se používají jen na značky zastávek a body na mapě.
+- Písmo: Barlow Condensed 700 na nadpisy a velká čísla, Barlow 500–700 na text, menu a popisky. Fonty jsou lokálně v `assets/fonts/`.
+- Logo: Prstenec v hlavičce, inverzní Pečeť v patičce (pozadí patičky má stejnou modrou jako pozadí souboru). Soubory v `assets/logo/` se neupravují.
+- Hlavní komponenty: `page-header`, `stats`, `stops`, `waypoints`, `tiles`, `rows`, `numbered`, `cta-band`, `toc`, `accordion`, `table`, `notice`, `tabs`.
