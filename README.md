@@ -1,6 +1,6 @@
 # Nebe Peklo Ráj
 
-FKT výzva z Nebeské Rybné přes Peklo do Českého ráje (cca 163 km). Spuštění květen 2027.
+FKT výzva z Nebeské Rybné přes Peklo do Českého ráje (aktuálně cca 155 km). Spuštění květen 2027.
 
 Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Později poběží na ASP.NET a soubory se přesunou do `wwwroot`.
 
@@ -83,3 +83,8 @@ Design V2 („turistický atlas“): bílé a teple šedé plochy, tenké linky,
 - Písmo: Barlow Condensed 700 na nadpisy a velká čísla, Barlow 500–700 na text, menu a popisky. Fonty jsou lokálně v `assets/fonts/`.
 - Logo: Prstenec v hlavičce, inverzní Pečeť v patičce (pozadí patičky má stejnou modrou jako pozadí souboru). Soubory v `assets/logo/` se neupravují.
 - Hlavní komponenty: `page-header`, `stats`, `stops`, `waypoints`, `tiles`, `rows`, `numbered`, `cta-band`, `toc`, `accordion`, `table`, `notice`, `tabs`.
+
+
+## Aktuální trasa (5. 11. 2026)
+
+Aktuální GPX má 3 895 bodů a délku přibližně 154,6 km. Kontrolní bod Peklo leží přibližně na 51,9 km; etapy tedy mají cca 52 km a 103 km. Součet kladných změn nadmořské výšky v GPX je přibližně +3 866 m. Cílový bod v `data/challenge.json` je nyní nastaven na poslední bod GPX (50.466023 N, 15.320590 E), název cíle na webu je zatím popisný.

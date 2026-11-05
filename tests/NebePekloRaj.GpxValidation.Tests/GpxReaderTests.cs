@@ -12,11 +12,11 @@ public class GpxReaderTests
     {
         var track = GpxReader.Read(Path.Combine(AppContext.BaseDirectory, "data", "trasa.gpx"));
 
-        Assert.Equal(7325, track.Points.Count);
+        Assert.Equal(3895, track.Points.Count);
         Assert.All(track.Points, p => Assert.Null(p.Time));
-        Assert.Equal(50.187937, track.Points[0].Position.Lat, 6);
-        Assert.Equal(16.420252, track.Points[0].Position.Lon, 6);
-        Assert.Equal(567.958435, track.Points[0].Elevation!.Value, 4);
+        Assert.Equal(50.188774, track.Points[0].Position.Lat, 6);
+        Assert.Equal(16.42034, track.Points[0].Position.Lon, 6);
+        Assert.Equal(573.41, track.Points[0].Elevation!.Value, 4);
     }
 
     [Fact]

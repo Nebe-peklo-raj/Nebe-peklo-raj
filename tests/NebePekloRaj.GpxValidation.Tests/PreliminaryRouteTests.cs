@@ -2,7 +2,7 @@ using Xunit;
 
 namespace NebePekloRaj.GpxValidation.Tests;
 
-/// <summary>End-to-end checks on the preliminary route in data/trasa.gpx and data/challenge.json.</summary>
+/// <summary>End-to-end checks on the current route in data/trasa.gpx and data/challenge.json.</summary>
 public class PreliminaryRouteTests
 {
     private static readonly DateTimeOffset T0 = new(2027, 6, 1, 4, 0, 0, TimeSpan.Zero);
@@ -23,27 +23,26 @@ public class PreliminaryRouteTests
         var b = new TrackBuilder(cfg.Start.Position, T0)
             .Stand(TimeSpan.FromMinutes(2))
             .Walk(Route(0, RealRoute.Route.LengthM), Kmh)
-            .Walk(cfg.Finish.Position, Kmh); // the last ~185 m beyond the end of the GPX
+            .Walk(cfg.Finish.Position, Kmh); // the configured finish is the final GPX point
 
         var r = Validator().Validate([b.Build()], RouteVariant.Full);
 
         Assert.True(r.Verdict == Verdict.Accepted, string.Join("\n", r.Findings.Select(f => f.Message)));
-        Assert.InRange(r.Elapsed!.Value.TotalHours, 17.5, 18.3); // ~162.6 km at 9 km/h
-        Assert.InRange(r.Stages[0].Elapsed.TotalHours, 5.1, 5.5); // ~48 km
-        Assert.InRange(r.RecordedDistanceM, 160_500, 163_000); // points every 25 m cut a few corners
+        Assert.InRange(r.Elapsed!.Value.TotalHours, 17.0, 17.4); // ~154.6 km at 9 km/h
+        Assert.InRange(r.Stages[0].Elapsed.TotalHours, 5.7, 5.9); // ~51.9 km
+        Assert.InRange(r.RecordedDistanceM, 153_000, 156_000); // points every 25 m cut a few corners
         Assert.True(r.CoveragePercent > 99);
     }
 
     [Fact]
-    public void Stopping_at_end_of_preliminary_gpx_misses_finish_zone()
+    public void Stopping_at_end_of_current_gpx_reaches_finish_zone()
     {
-        // Documents the open question: the GPX ends ~185 m before the finish point, outside the 150 m zone.
+        // The current finish zone is centered on the final point of the GPX.
         var b = new TrackBuilder(RealRoute.Config.Start.Position, T0).Walk(Route(0, RealRoute.Route.LengthM), Kmh);
 
         var r = Validator().Validate([b.Build()], RouteVariant.Full);
 
-        Assert.Equal(Verdict.Rejected, r.Verdict);
-        Assert.Contains(r.Findings, f => f.Code == FindingCode.FinishNotReached);
+        Assert.Equal(Verdict.Accepted, r.Verdict);
     }
 
     [Fact]
@@ -54,7 +53,7 @@ public class PreliminaryRouteTests
         var r = Validator().Validate([b.Build()], RouteVariant.Stage1);
 
         Assert.True(r.Verdict == Verdict.Accepted, string.Join("\n", r.Findings.Select(f => f.Message)));
-        Assert.InRange(r.RouteLengthM, 47_700, 48_700);
+        Assert.InRange(r.RouteLengthM, 51_700, 52_100);
     }
 
     [Fact]
@@ -81,7 +80,7 @@ public class PreliminaryRouteTests
 
         Assert.Contains(r.Findings, f => f.Code == FindingCode.FinishNotReached);
         Assert.Equal(Verdict.Accepted, r.Stage1Fallback!.Verdict);
-        Assert.InRange(r.Stage1Fallback.Elapsed!.Value.TotalHours, 5.1, 5.5);
+        Assert.InRange(r.Stage1Fallback.Elapsed!.Value.TotalHours, 5.7, 5.9);
     }
 
     [Fact]

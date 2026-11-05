@@ -5,23 +5,23 @@ namespace NebePekloRaj.GpxValidation.Tests;
 public class RouteModelTests
 {
     [Fact]
-    public void Preliminary_route_matches_published_numbers()
+    public void Current_route_matches_current_gpx_and_checkpoints()
     {
         var route = RealRoute.Route;
         var cfg = RealRoute.Config;
 
-        Assert.InRange(route.LengthM, 162_000, 163_200);
+        Assert.InRange(route.LengthM, 154_400, 154_800);
 
         var start = route.ProjectNearest(cfg.Start.Position)!.Value;
         Assert.True(start.DistanceFromRouteM < 50, $"start {start.DistanceFromRouteM} m");
 
         var peklo = route.ProjectNearest(cfg.Peklo.Position)!.Value;
         Assert.True(peklo.DistanceFromRouteM < 50, $"peklo {peklo.DistanceFromRouteM} m");
-        Assert.InRange(peklo.AlongM, 47_700, 48_700);
+        Assert.InRange(peklo.AlongM, 51_700, 52_100);
 
-        // Known issue: the preliminary GPX ends about 185 m before the finish point.
+        // The configured finish is now the final point of the current GPX.
         var finish = route.ProjectNearest(cfg.Finish.Position)!.Value;
-        Assert.InRange(finish.DistanceFromRouteM, 180, 240);
+        Assert.InRange(finish.DistanceFromRouteM, 0, 50);
         Assert.Equal(route.LengthM, finish.AlongM, 0);
     }
 

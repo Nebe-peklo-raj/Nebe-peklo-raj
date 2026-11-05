@@ -135,10 +135,10 @@ def hero_profile(cfg, pts, dist, stops):
         )
     half = round(total / 2000 / 10) * 10
     return f"""<figure class="profile-hero">
-  <figcaption class="profile-hero__head"><span>Předběžný výškový profil</span><span>0 — {round(total / 1000)} km</span></figcaption>
+  <figcaption class="profile-hero__head"><span>Výškový profil aktuální trasy</span><span>0 — {round(total / 1000)} km</span></figcaption>
   <div class="profile-hero__plot">
     <svg viewBox="0 0 {f(w)} {f(h)}" preserveAspectRatio="none" role="img" aria-labelledby="hero-profile-title">
-      <title id="hero-profile-title">Výškový profil trasy: start v Nebi, Peklo po cca 48 km, cíl v Ráji po cca {round(total / 1000)} km. Nadmořská výška 280 až 1100 m.</title>
+      <title id="hero-profile-title">Výškový profil trasy: start v Nebi, Peklo po cca 52 km, cíl v Ráji po cca {round(total / 1000)} km. Nadmořská výška 280 až 1100 m.</title>
       <g class="profile-hero__grid">{grid}</g>
       <path class="profile-hero__area" d="{area}"/>
       <polyline class="profile-hero__line" points="{line}"/>
@@ -237,7 +237,7 @@ def small_profile(cfg, pts, dist, stops):
     return f"""<figure class="profile">
   <div class="profile__plot">
     <svg viewBox="0 0 {f(w)} {f(h)}" preserveAspectRatio="none" role="img" aria-labelledby="profile-title">
-      <title id="profile-title">Výškový profil trasy: nadmořská výška 280 až 1100 m, Peklo po cca 48 km, cíl po cca {round(total / 1000)} km.</title>
+      <title id="profile-title">Výškový profil trasy: nadmořská výška 280 až 1100 m, Peklo po cca 52 km, cíl po cca {round(total / 1000)} km.</title>
       <g class="profile__grid">{grid}</g>
       <path class="profile__area" d="{area}"/>
       <polyline class="profile__line" points="{line}"/>
@@ -246,7 +246,7 @@ def small_profile(cfg, pts, dist, stops):
     <div class="profile__y" aria-hidden="true">{ylabels}</div>
   </div>
   <div class="profile__x" aria-hidden="true">{xlabels}<span class="profile__unit">{round(total / 1000)} km</span></div>
-  <figcaption class="note">Nadmořská výška (m) podle vzdálenosti (km), vyhlazeno. Schematický přehled podle předběžné trasy, přesnou stopu zveřejníme s finálním GPX.</figcaption>
+  <figcaption class="note">Nadmořská výška (m) podle vzdálenosti (km), vyhlazeno. Schematický přehled podle aktuálního GPX.</figcaption>
 </figure>"""
 
 
