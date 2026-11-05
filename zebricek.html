@@ -18,25 +18,28 @@
   <meta property="og:image:alt" content="Logo Nebe Peklo Ráj – 163 km z Nebeské Rybné do Českého ráje">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts.css?v=2">
-  <link rel="stylesheet" href="assets/styles.css?v=3">
+  <link rel="stylesheet" href="assets/styles.css?v=4">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/site.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-header__brand" href="index.html"><picture><source srcset="assets/logo/prstenec-svetly.svg" media="(prefers-color-scheme: dark)"><img class="site-header__logo" src="assets/logo/prstenec.svg" alt="" width="32" height="32"></picture>Nebe Peklo Ráj</a>
-      <nav class="site-nav" aria-label="Hlavní menu">
-        <input class="site-nav__toggle" type="checkbox" id="nav-toggle">
-        <label class="site-nav__button" for="nav-toggle">Menu</label>
+      <a class="brand" href="index.html"><img class="brand__logo" src="assets/logo/prstenec.svg" alt="" width="36" height="36">Nebe Peklo Ráj</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span>Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Hlavní menu">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="trasa.html">Trasa</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="pravidla.html">Pravidla</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="zebricek.html" aria-current="page">Žebříček</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="faq.html">FAQ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="kontakt.html">Kontakt</a></li>
-          <li class="site-nav__item"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
+          <li class="site-nav__item site-nav__item--cta"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
         </ul>
       </nav>
     </div>
@@ -44,35 +47,106 @@
 
   <main id="obsah">
     <header class="page-header">
-      <div class="container">
-        <h1 class="page-header__title">Žebříček <span class="badge badge--soon" aria-hidden="true">připravujeme</span></h1>
-        <p class="page-header__lead">Spouštíme v květnu 2027. Zatím je žebříček prázdný a první časy budou zároveň první rekordy.</p>
+      <div class="container page-header__inner">
+        <div>
+          <p class="eyebrow">FKT výzva · květen 2027</p>
+          <h1 class="page-header__title">Žebříček</h1>
+          <p class="page-header__lead">Spouštíme v květnu 2027. Zatím je žebříček prázdný a první časy budou zároveň první rekordy.</p>
+        </div>
+        <div class="page-header__aside"><span class="status status--soon">Připravujeme</span></div>
       </div>
     </header>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Co tu bude</h2>
-        <div class="grid grid--3">
-          <div class="card"><h3 class="card__title">Tři žebříčky</h3><p class="card__text">Celá trasa, Etapa 1 a Etapa 2, každý zvlášť.</p></div>
-          <div class="card"><h3 class="card__title">Podle stylu</h3><p class="card__text">Bez podpory, na vlastní pěst a s podporou. Zvlášť muži, ženy a „ostatní / neuvádím“. Skupinové pokusy se značkou.</p></div>
-          <div class="card"><h3 class="card__title">Nahrání GPX</h3><p class="card__text">Záznam nahraješ přímo tady. Základní kontrola proběhne automaticky.</p></div>
+    <section class="section" aria-labelledby="board-title">
+      <div class="container" data-tabs>
+        <h2 class="visually-hidden" id="board-title">Žebříčky podle varianty</h2>
+        <ul class="tabs__list">
+          <li><a class="tabs__tab" href="#cela-trasa">Celá trasa <small>163 km</small></a></li>
+          <li><a class="tabs__tab" href="#etapa-1">Etapa 1 <small>48 km</small></a></li>
+          <li><a class="tabs__tab" href="#etapa-2">Etapa 2 <small>114 km</small></a></li>
+        </ul>
+
+        <div class="filters">
+          <div class="filters__field">
+            <label class="caps" for="filtr-styl">Styl</label>
+            <select class="filters__select" id="filtr-styl" disabled aria-describedby="filtry-pozn">
+              <option>Všechny styly</option>
+              <option>Unsupported (bez podpory)</option>
+              <option>Self-supported (na vlastní pěst)</option>
+              <option>Supported (s podporou)</option>
+            </select>
+          </div>
+          <div class="filters__field">
+            <label class="caps" for="filtr-kategorie">Kategorie</label>
+            <select class="filters__select" id="filtr-kategorie" disabled aria-describedby="filtry-pozn">
+              <option>Všechny kategorie</option>
+              <option>Muži</option>
+              <option>Ženy</option>
+              <option>Ostatní / neuvádím</option>
+            </select>
+          </div>
+          <p class="filters__note" id="filtry-pozn">Filtry budou aktivní od spuštění v květnu 2027.</p>
+        </div>
+
+        <div class="tabs__panel" id="cela-trasa">
+          <h3 class="visually-hidden">Celá trasa · Nebe → Peklo → Ráj · cca 163 km</h3>
+          <div class="table-wrap mb-0">
+            <table class="table board-head">
+              <thead><tr><th scope="col">Pořadí</th><th scope="col">Jméno</th><th scope="col" class="hide-s">Styl</th><th scope="col" class="hide-s">Kategorie</th><th scope="col" class="num">Čas</th></tr></thead>
+            </table>
+          </div>
+          <div class="empty">
+            <p class="empty__title">Zatím bez rekordů.</p>
+            <p>Celá trasa · Nebe → Peklo → Ráj · cca 163 km. Žebříček se otevře v květnu 2027. První ověřené dokončení nastaví první čas.</p>
+          </div>
+        </div>
+        <div class="tabs__panel" id="etapa-1">
+          <h3 class="visually-hidden">Etapa 1 · Nebe → Peklo · cca 48 km</h3>
+          <div class="table-wrap mb-0">
+            <table class="table board-head">
+              <thead><tr><th scope="col">Pořadí</th><th scope="col">Jméno</th><th scope="col" class="hide-s">Styl</th><th scope="col" class="hide-s">Kategorie</th><th scope="col" class="num">Čas</th></tr></thead>
+            </table>
+          </div>
+          <div class="empty">
+            <p class="empty__title">Zatím bez rekordů.</p>
+            <p>Etapa 1 · Nebe → Peklo · cca 48 km. Zapíše se sem i Etapa 1 z pokusu o celou trasu. Žebříček se otevře v květnu 2027.</p>
+          </div>
+        </div>
+        <div class="tabs__panel" id="etapa-2">
+          <h3 class="visually-hidden">Etapa 2 · Peklo → Ráj · cca 114 km</h3>
+          <div class="table-wrap mb-0">
+            <table class="table board-head">
+              <thead><tr><th scope="col">Pořadí</th><th scope="col">Jméno</th><th scope="col" class="hide-s">Styl</th><th scope="col" class="hide-s">Kategorie</th><th scope="col" class="num">Čas</th></tr></thead>
+            </table>
+          </div>
+          <div class="empty">
+            <p class="empty__title">Zatím bez rekordů.</p>
+            <p>Etapa 2 · Peklo → Ráj · cca 114 km. Zapíše se sem i Etapa 2 z pokusu o celou trasu. Žebříček se otevře v květnu 2027.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container container--narrow prose">
-        <h2 class="section__title">Zápis a medaile</h2>
-        <p>Trasa a GPX zůstanou zdarma. Zápis do žebříčku bude placený a k němu si můžeš volitelně přikoupit 3D tištěnou medaili ve tvaru puzzle. Ceny zveřejníme před spuštěním.</p>
+    <section class="section" aria-labelledby="co-tu-bude">
+      <div class="container">
+        <h2 class="section__title" id="co-tu-bude">Co tu bude</h2>
+        <ol class="numbered numbered--row">
+          <li class="numbered__item"><div><strong class="numbered__title">Tři žebříčky</strong><span class="numbered__text">Celá trasa, Etapa 1 a Etapa 2, každý zvlášť.</span></div></li>
+          <li class="numbered__item"><div><strong class="numbered__title">Podle stylu</strong><span class="numbered__text">Bez podpory, na vlastní pěst a s podporou. Zvlášť muži, ženy a „ostatní / neuvádím“. Skupinové pokusy se značkou.</span></div></li>
+          <li class="numbered__item"><div><strong class="numbered__title">Nahrání GPX</strong><span class="numbered__text">Záznam nahraješ přímo tady. Základní kontrola proběhne automaticky.</span></div></li>
+        </ol>
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container container--narrow text-center">
-        <h2 class="section__title">Dej mi vědět o spuštění</h2>
-        <p>Výzvu spouštíme v květnu 2027. Nech nám e-mail a dáme ti vědět jako prvním.</p>
-        <a class="button button--primary" href="index.html#waitlist">Dej mi vědět o startu</a>
+    <section class="section section--flush-top" aria-labelledby="zapis-title">
+      <div class="container">
+        <div class="cta-band cta-band--line">
+          <div>
+            <h2 class="cta-band__title" id="zapis-title">Trasa i GPX zůstávají zdarma.</h2>
+            <p class="cta-band__text">Zápis do žebříčku bude možný po ověřeném dokončení a bude placený. K němu si můžeš volitelně přikoupit 3D tištěnou medaili ve tvaru puzzle. Ceny zveřejníme před spuštěním.</p>
+          </div>
+          <a class="button" href="index.html#waitlist">Chci vědět o startu</a>
+        </div>
       </div>
     </section>
   </main>
@@ -80,27 +154,30 @@
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__title">Nebe Peklo Ráj</p>
-          <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+        <div class="site-footer__brand">
+          <img class="site-footer__seal" src="assets/logo/pecet-inverz.svg" alt="" width="88" height="88" loading="lazy">
+          <div>
+            <p class="site-footer__name">Nebe Peklo Ráj</p>
+            <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+          </div>
         </div>
-        <div>
-          <p class="site-footer__title">Výzva</p>
+        <nav aria-labelledby="footer-vyzva">
+          <p class="site-footer__title" id="footer-vyzva">Výzva</p>
           <ul class="site-footer__list">
             <li><a href="trasa.html">Trasa</a></li>
             <li><a href="pravidla.html">Pravidla</a></li>
             <li><a href="zebricek.html">Žebříček</a></li>
             <li><a href="faq.html">Časté otázky</a></li>
           </ul>
-        </div>
-        <div>
-          <p class="site-footer__title">Info</p>
+        </nav>
+        <nav aria-labelledby="footer-info">
+          <p class="site-footer__title" id="footer-info">Info</p>
           <ul class="site-footer__list">
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="trasa.html#bezpecnost">Bezpečnost</a></li>
             <li><a href="ochrana-udaju.html">Ochrana osobních údajů</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="site-footer__bottom">
         <p>© 2026 Nebe Peklo Ráj · Pravidla v1.1 · <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a></p>

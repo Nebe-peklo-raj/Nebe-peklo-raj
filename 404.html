@@ -18,69 +18,94 @@
   <meta property="og:image:alt" content="Logo Nebe Peklo Ráj – 163 km z Nebeské Rybné do Českého ráje">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/Nebe-peklo-raj/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/Nebe-peklo-raj/assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/Nebe-peklo-raj/assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/Nebe-peklo-raj/assets/fonts.css?v=2">
-  <link rel="stylesheet" href="/Nebe-peklo-raj/assets/styles.css?v=3">
+  <link rel="stylesheet" href="/Nebe-peklo-raj/assets/styles.css?v=4">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="/Nebe-peklo-raj/assets/site.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-header__brand" href="/Nebe-peklo-raj/index.html"><picture><source srcset="/Nebe-peklo-raj/assets/logo/prstenec-svetly.svg" media="(prefers-color-scheme: dark)"><img class="site-header__logo" src="/Nebe-peklo-raj/assets/logo/prstenec.svg" alt="" width="32" height="32"></picture>Nebe Peklo Ráj</a>
-      <nav class="site-nav" aria-label="Hlavní menu">
-        <input class="site-nav__toggle" type="checkbox" id="nav-toggle">
-        <label class="site-nav__button" for="nav-toggle">Menu</label>
+      <a class="brand" href="/Nebe-peklo-raj/index.html"><img class="brand__logo" src="/Nebe-peklo-raj/assets/logo/prstenec.svg" alt="" width="36" height="36">Nebe Peklo Ráj</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span>Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Hlavní menu">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="/Nebe-peklo-raj/trasa.html">Trasa</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="/Nebe-peklo-raj/pravidla.html">Pravidla</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="/Nebe-peklo-raj/zebricek.html">Žebříček</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="/Nebe-peklo-raj/faq.html">FAQ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="/Nebe-peklo-raj/kontakt.html">Kontakt</a></li>
-          <li class="site-nav__item"><a class="button button--small" href="/Nebe-peklo-raj/index.html#waitlist">Waitlist</a></li>
+          <li class="site-nav__item site-nav__item--cta"><a class="button button--small" href="/Nebe-peklo-raj/index.html#waitlist">Waitlist</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="obsah">
-    <section class="error-page">
-      <div class="container">
-        <p class="error-page__code">404</p>
-        <h1 class="error-page__title">Tahle stránka zabloudila mimo koridor</h1>
-        <p class="error-page__text">Stránka neexistuje nebo se přesunula.</p>
-        <div class="error-page__actions">
-          <a class="button button--primary" href="/Nebe-peklo-raj/index.html">Zpět na úvod</a>
-          <a class="button button--secondary" href="/Nebe-peklo-raj/trasa.html">Trasa</a>
-          <a class="button button--secondary" href="/Nebe-peklo-raj/pravidla.html">Pravidla</a>
+    <div class="error">
+      <div class="error__text-col">
+        <p class="eyebrow">Mimo vyznačenou trasu</p>
+        <p class="error__code" aria-hidden="true">404</p>
+        <h1 class="error__title">Tahle stránka zabloudila mimo koridor.</h1>
+        <p class="error__text">Stránka neexistuje nebo se přesunula. Zpátky na trasu se dostaneš snadno.</p>
+        <div class="actions mt-l">
+          <a class="button" href="/Nebe-peklo-raj/index.html">Zpět na úvod</a>
+          <a class="button button--outline" href="/Nebe-peklo-raj/trasa.html">Trasa</a>
+        </div>
+        <p class="note mt-l mb-0">Hledáš pravidla? <a href="/Nebe-peklo-raj/pravidla.html">Pravidla</a> · <a href="/Nebe-peklo-raj/faq.html">Časté otázky</a></p>
+      </div>
+      <div class="error__art" aria-hidden="true">
+        <div class="error__map">
+          <svg viewBox="0 0 500 300" focusable="false">
+            <g stroke="#DCDAD3" stroke-width="1">
+              <line x1="0" x2="500" y1="60" y2="60"/><line x1="0" x2="500" y1="120" y2="120"/><line x1="0" x2="500" y1="180" y2="180"/><line x1="0" x2="500" y1="240" y2="240"/>
+              <line x1="100" x2="100" y1="0" y2="300"/><line x1="200" x2="200" y1="0" y2="300"/><line x1="300" x2="300" y1="0" y2="300"/><line x1="400" x2="400" y1="0" y2="300"/>
+            </g>
+            <path d="M45 258 C 95 232, 125 205, 160 200 C 200 195, 215 160, 250 140 C 285 118, 330 105, 360 112 C 390 118, 410 80, 455 32" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+            <path d="M45 258 C 95 232, 125 205, 160 200 C 200 195, 215 160, 250 140 C 285 118, 330 105, 360 112 C 390 118, 410 80, 455 32" fill="none" stroke="#194FA2" stroke-width="4" stroke-linecap="round"/>
+            <path d="M250 140 L 222 170 L 198 196" fill="none" stroke="#B92A2A" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
+            <circle cx="250" cy="140" r="7" fill="#194FA2" stroke="#FFFFFF" stroke-width="3"/>
+            <circle cx="198" cy="196" r="9" fill="#B92A2A" stroke="#FFFFFF" stroke-width="3"/>
+            <text x="262" y="160" font-family="Barlow, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#194FA2">TRASA</text>
+            <rect x="40" y="140" width="170" height="30" fill="#FFFFFF" stroke="#DCDAD3"/>
+            <text x="125" y="160" text-anchor="middle" font-family="Barlow, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#B92A2A">TADY CESTA NEVEDE</text>
+          </svg>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__title">Nebe Peklo Ráj</p>
-          <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+        <div class="site-footer__brand">
+          <img class="site-footer__seal" src="/Nebe-peklo-raj/assets/logo/pecet-inverz.svg" alt="" width="88" height="88" loading="lazy">
+          <div>
+            <p class="site-footer__name">Nebe Peklo Ráj</p>
+            <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+          </div>
         </div>
-        <div>
-          <p class="site-footer__title">Výzva</p>
+        <nav aria-labelledby="footer-vyzva">
+          <p class="site-footer__title" id="footer-vyzva">Výzva</p>
           <ul class="site-footer__list">
             <li><a href="/Nebe-peklo-raj/trasa.html">Trasa</a></li>
             <li><a href="/Nebe-peklo-raj/pravidla.html">Pravidla</a></li>
             <li><a href="/Nebe-peklo-raj/zebricek.html">Žebříček</a></li>
             <li><a href="/Nebe-peklo-raj/faq.html">Časté otázky</a></li>
           </ul>
-        </div>
-        <div>
-          <p class="site-footer__title">Info</p>
+        </nav>
+        <nav aria-labelledby="footer-info">
+          <p class="site-footer__title" id="footer-info">Info</p>
           <ul class="site-footer__list">
             <li><a href="/Nebe-peklo-raj/kontakt.html">Kontakt</a></li>
             <li><a href="/Nebe-peklo-raj/trasa.html#bezpecnost">Bezpečnost</a></li>
             <li><a href="/Nebe-peklo-raj/ochrana-udaju.html">Ochrana osobních údajů</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="site-footer__bottom">
         <p>© 2026 Nebe Peklo Ráj · Pravidla v1.1 · <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a></p>

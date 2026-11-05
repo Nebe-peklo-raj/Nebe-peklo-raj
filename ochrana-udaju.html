@@ -18,25 +18,28 @@
   <meta property="og:image:alt" content="Logo Nebe Peklo Ráj – 163 km z Nebeské Rybné do Českého ráje">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/barlow-condensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts.css?v=2">
-  <link rel="stylesheet" href="assets/styles.css?v=3">
+  <link rel="stylesheet" href="assets/styles.css?v=4">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/site.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-header__brand" href="index.html"><picture><source srcset="assets/logo/prstenec-svetly.svg" media="(prefers-color-scheme: dark)"><img class="site-header__logo" src="assets/logo/prstenec.svg" alt="" width="32" height="32"></picture>Nebe Peklo Ráj</a>
-      <nav class="site-nav" aria-label="Hlavní menu">
-        <input class="site-nav__toggle" type="checkbox" id="nav-toggle">
-        <label class="site-nav__button" for="nav-toggle">Menu</label>
+      <a class="brand" href="index.html"><img class="brand__logo" src="assets/logo/prstenec.svg" alt="" width="36" height="36">Nebe Peklo Ráj</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span>Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Hlavní menu">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="trasa.html">Trasa</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="pravidla.html">Pravidla</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="zebricek.html">Žebříček</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="faq.html">FAQ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="kontakt.html">Kontakt</a></li>
-          <li class="site-nav__item"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
+          <li class="site-nav__item site-nav__item--cta"><a class="button button--small" href="index.html#waitlist">Waitlist</a></li>
         </ul>
       </nav>
     </div>
@@ -45,71 +48,101 @@
   <main id="obsah">
     <header class="page-header">
       <div class="container">
+        <p class="eyebrow">Waitlist a web</p>
         <h1 class="page-header__title">Ochrana osobních údajů</h1>
         <p class="page-header__lead">Jak nakládáme s údaji z waitlistu.</p>
       </div>
     </header>
 
-    <section class="section">
-      <div class="container container--narrow prose">
-        <h2 class="section__title">Kdo je správce</h2>
-        <p>Tobiáš Otta, soukromá osoba, provozovatel webu a výzvy Nebe Peklo Ráj. Kontakt: <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a>. Pověřence pro ochranu osobních údajů nemáme, protože to zákon v našem případě nevyžaduje.</p>
+    <div class="section">
+      <div class="container with-sidebar">
+        <aside class="with-sidebar__aside" aria-label="Na této stránce">
+          <details class="toc" open data-scrollspy>
+            <summary class="toc__toggle"><span class="toc__title caps">Na této stránce</span></summary>
+            <ul class="toc__list">
+              <li><a class="toc__link" href="#spravce">Kdo je správce</a></li>
+              <li><a class="toc__link" href="#waitlist">Waitlist: jaké údaje, proč a na jakém základě</a></li>
+              <li><a class="toc__link" href="#navsteva">Návštěva webu</a></li>
+              <li><a class="toc__link" href="#prijemci">Komu údaje svěřujeme</a></li>
+              <li><a class="toc__link" href="#mimo-eu">Předání mimo EU</a></li>
+              <li><a class="toc__link" href="#doba">Jak dlouho</a></li>
+              <li><a class="toc__link" href="#prava">Tvoje práva</a></li>
+              <li><a class="toc__link" href="#vek">Věk</a></li>
+            </ul>
+          </details>
+        </aside>
 
-        <h2 class="section__title">Waitlist: jaké údaje, proč a na jakém základě</h2>
-        <p>Když se přihlásíš na waitlist, zpracováváme tvůj e-mail a to, co do formuláře sám vyplníš navíc (jméno, varianta, o kterou máš zájem), spolu s datem a časem souhlasu. Používáme je jen k tomu, abychom ti poslali zprávu o spuštění výzvy, finální GPX a pravidla, informace o cenách zápisu a medaile a o důležitých změnách. Právním základem je tvůj souhlas (čl. 6 odst. 1 písm. a) GDPR, u e-mailů s nabídkou placených služeb i § 7 zákona č. 480/2004 Sb.). Poskytnutí údajů je dobrovolné, bez e-mailu ti ale nemůžeme nic poslat.</p>
-
-        <h2 class="section__title">Návštěva webu</h2>
-        <p>Web běží na GitHub Pages (GitHub, Inc., USA). GitHub při každé návštěvě zaznamenává IP adresu a technické údaje o prohlížeči a ukládá je z bezpečnostních důvodů jako samostatný správce podle svých <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">zásad</a>. My tyto záznamy nevidíme a nepoužíváme. Nepoužíváme analytické ani reklamní cookies. Při načtení formuláře se připojíš k serverům Tally, která může ukládat jen technické údaje nutné k vyplnění formuláře.</p>
-
-        <h2 class="section__title">Komu údaje svěřujeme</h2>
-        <ul>
-          <li><strong>Tally BV</strong> (Gent, Belgie) provozuje formulář a ukládá odpovědi naším jménem jako zpracovatel. Data ukládá v EU. Pro ochranu proti botům a pro DNS používá Cloudflare (USA).</li>
-          <li><strong>Seznam.cz, a.s.</strong> (ČR) je poskytovatel naší e-mailové schránky, přes kterou s tebou komunikujeme.</li>
-          <!-- až bude vybraný nástroj na rozesílku e-mailů, doplnit sem -->
-        </ul>
-        <p>Údaje neprodáváme a nepředáváme pro marketing nikomu dalšímu. Úřadům je předáme, jen když to ukládá zákon.</p>
-
-        <h2 class="section__title">Předání mimo EU</h2>
-        <p>Někteří poskytovatelé (GitHub, Cloudflare) sídlí v USA, data k nim proto mohou putovat. Předání se opírá o rozhodnutí Evropské komise o odpovídající ochraně (EU-US Data Privacy Framework), pokud je poskytovatel certifikován, jinak o standardní smluvní doložky EU.</p>
-
-        <h2 class="section__title">Jak dlouho</h2>
-        <p>Údaje z waitlistu uchováváme do odvolání souhlasu, nejdéle do 31. 12. 2027. Pak waitlist smažeme. Pokud si mezitím založíš účet v žebříčku, budou pro něj platit samostatné zásady.</p>
-
-        <h2 class="section__title">Tvoje práva</h2>
-        <p>Souhlas můžeš kdykoli odvolat stejně snadno, jako jsi ho dal: odkazem pro odhlášení v každém našem e-mailu nebo zprávou na e-mail níže. Dosavadní zpracování tím nepřestává být zákonné. Dál máš právo na přístup k údajům, jejich opravu, výmaz, omezení zpracování a přenositelnost a právo vznést námitku. Stačí napsat na <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a>, odpovíme do jednoho měsíce. Pokud si myslíš, že s údaji zacházíme špatně, můžeš podat stížnost u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7, <a href="https://uoou.gov.cz">uoou.gov.cz</a>.</p>
-
-        <h2 class="section__title">Věk</h2>
-        <p>Na waitlist se mohou přihlásit lidé od 15 let. Za mladší musí souhlas dát rodič.</p>
-
-        <p class="note">Platné od 1. 11. 2026. Nic automaticky nevyhodnocujeme ani neprofilujeme. Před spuštěním žebříčku zásady doplníme o účty, platby a nahrané GPX záznamy a dáme ti vědět e-mailem.</p>
+        <div class="with-sidebar__main">
+          <section class="doc-section prose" id="spravce" aria-labelledby="spravce-title">
+            <h2 id="spravce-title">Kdo je správce</h2>
+            <p>Tobiáš Otta, soukromá osoba, provozovatel webu a výzvy Nebe Peklo Ráj. Kontakt: <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a>. Pověřence pro ochranu osobních údajů nemáme, protože to zákon v našem případě nevyžaduje.</p>
+          </section>
+          <section class="doc-section prose" id="waitlist" aria-labelledby="waitlist-title">
+            <h2 id="waitlist-title">Waitlist: jaké údaje, proč a na jakém základě</h2>
+            <p>Když se přihlásíš na waitlist, zpracováváme tvůj e-mail a to, co do formuláře sám vyplníš navíc (jméno, varianta, o kterou máš zájem), spolu s datem a časem souhlasu. Používáme je jen k tomu, abychom ti poslali zprávu o spuštění výzvy, finální GPX a pravidla, informace o cenách zápisu a medaile a o důležitých změnách. Právním základem je tvůj souhlas (čl. 6 odst. 1 písm. a) GDPR, u e-mailů s nabídkou placených služeb i § 7 zákona č. 480/2004 Sb.). Poskytnutí údajů je dobrovolné, bez e-mailu ti ale nemůžeme nic poslat.</p>
+          </section>
+          <section class="doc-section prose" id="navsteva" aria-labelledby="navsteva-title">
+            <h2 id="navsteva-title">Návštěva webu</h2>
+            <p>Web běží na GitHub Pages (GitHub, Inc., USA). GitHub při každé návštěvě zaznamenává IP adresu a technické údaje o prohlížeči a ukládá je z bezpečnostních důvodů jako samostatný správce podle svých <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">zásad</a>. My tyto záznamy nevidíme a nepoužíváme. Nepoužíváme analytické ani reklamní cookies. Při načtení formuláře se připojíš k serverům Tally, která může ukládat jen technické údaje nutné k vyplnění formuláře.</p>
+          </section>
+          <section class="doc-section prose" id="prijemci" aria-labelledby="prijemci-title">
+            <h2 id="prijemci-title">Komu údaje svěřujeme</h2>
+            <ul>
+            <li><strong>Tally BV</strong> (Gent, Belgie) provozuje formulář a ukládá odpovědi naším jménem jako zpracovatel. Data ukládá v EU. Pro ochranu proti botům a pro DNS používá Cloudflare (USA).</li>
+            <li><strong>Seznam.cz, a.s.</strong> (ČR) je poskytovatel naší e-mailové schránky, přes kterou s tebou komunikujeme.</li>
+            <!-- až bude vybraný nástroj na rozesílku e-mailů, doplnit sem -->
+            </ul>
+            <p>Údaje neprodáváme a nepředáváme pro marketing nikomu dalšímu. Úřadům je předáme, jen když to ukládá zákon.</p>
+          </section>
+          <section class="doc-section prose" id="mimo-eu" aria-labelledby="mimo-eu-title">
+            <h2 id="mimo-eu-title">Předání mimo EU</h2>
+            <p>Někteří poskytovatelé (GitHub, Cloudflare) sídlí v USA, data k nim proto mohou putovat. Předání se opírá o rozhodnutí Evropské komise o odpovídající ochraně (EU-US Data Privacy Framework), pokud je poskytovatel certifikován, jinak o standardní smluvní doložky EU.</p>
+          </section>
+          <section class="doc-section prose" id="doba" aria-labelledby="doba-title">
+            <h2 id="doba-title">Jak dlouho</h2>
+            <p>Údaje z waitlistu uchováváme do odvolání souhlasu, nejdéle do 31. 12. 2027. Pak waitlist smažeme. Pokud si mezitím založíš účet v žebříčku, budou pro něj platit samostatné zásady.</p>
+          </section>
+          <section class="doc-section prose" id="prava" aria-labelledby="prava-title">
+            <h2 id="prava-title">Tvoje práva</h2>
+            <p>Souhlas můžeš kdykoli odvolat stejně snadno, jako jsi ho dal: odkazem pro odhlášení v každém našem e-mailu nebo zprávou na e-mail níže. Dosavadní zpracování tím nepřestává být zákonné. Dál máš právo na přístup k údajům, jejich opravu, výmaz, omezení zpracování a přenositelnost a právo vznést námitku. Stačí napsat na <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a>, odpovíme do jednoho měsíce. Pokud si myslíš, že s údaji zacházíme špatně, můžeš podat stížnost u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7, <a href="https://uoou.gov.cz">uoou.gov.cz</a>.</p>
+          </section>
+          <section class="doc-section prose" id="vek" aria-labelledby="vek-title">
+            <h2 id="vek-title">Věk</h2>
+            <p>Na waitlist se mohou přihlásit lidé od 15 let. Za mladší musí souhlas dát rodič.</p>
+          </section>
+          <p class="note mt-xl">Platné od 1. 11. 2026. Nic automaticky nevyhodnocujeme ani neprofilujeme. Před spuštěním žebříčku zásady doplníme o účty, platby a nahrané GPX záznamy a dáme ti vědět e-mailem.</p>
+        </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__grid">
-        <div>
-          <p class="site-footer__title">Nebe Peklo Ráj</p>
-          <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+        <div class="site-footer__brand">
+          <img class="site-footer__seal" src="assets/logo/pecet-inverz.svg" alt="" width="88" height="88" loading="lazy">
+          <div>
+            <p class="site-footer__name">Nebe Peklo Ráj</p>
+            <p>Trvalá FKT výzva z Nebeské Rybné přes Peklo do Českého ráje. Otevřeno pro všechny.</p>
+          </div>
         </div>
-        <div>
-          <p class="site-footer__title">Výzva</p>
+        <nav aria-labelledby="footer-vyzva">
+          <p class="site-footer__title" id="footer-vyzva">Výzva</p>
           <ul class="site-footer__list">
             <li><a href="trasa.html">Trasa</a></li>
             <li><a href="pravidla.html">Pravidla</a></li>
             <li><a href="zebricek.html">Žebříček</a></li>
             <li><a href="faq.html">Časté otázky</a></li>
           </ul>
-        </div>
-        <div>
-          <p class="site-footer__title">Info</p>
+        </nav>
+        <nav aria-labelledby="footer-info">
+          <p class="site-footer__title" id="footer-info">Info</p>
           <ul class="site-footer__list">
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="trasa.html#bezpecnost">Bezpečnost</a></li>
             <li><a href="ochrana-udaju.html">Ochrana osobních údajů</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="site-footer__bottom">
         <p>© 2026 Nebe Peklo Ráj · Pravidla v1.1 · <a href="mailto:tobiasotta@seznam.cz">tobiasotta@seznam.cz</a></p>
