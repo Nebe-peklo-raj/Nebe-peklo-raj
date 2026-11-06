@@ -1,6 +1,6 @@
 name: Deploy web to GitHub Pages
 
-# Publishes only the website files, not docs/, data/, src/, tests/ or other repo files.
+# Publishes the website files and the public GPX track needed by the interactive route map.
 # Requires Settings → Pages → Source: "GitHub Actions".
 
 on:
@@ -32,6 +32,9 @@ jobs:
           mkdir _site
           cp *.html robots.txt sitemap.xml .nojekyll _site/
           cp -r assets _site/
+          mkdir -p _site/data
+          cp data/trasa.gpx _site/data/trasa.gpx
+          test -s _site/data/trasa.gpx
           python3 -c 'import json,os; open("_site/assets/mapy-config.js","w",encoding="utf-8").write("window.MAPY_API_KEY = " + json.dumps(os.environ.get("MAPY_API_KEY","")) + ";" + chr(10))'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
