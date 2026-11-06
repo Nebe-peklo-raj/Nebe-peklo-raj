@@ -30,7 +30,7 @@ public class PreliminaryRouteTests
         Assert.True(r.Verdict == Verdict.Accepted, string.Join("\n", r.Findings.Select(f => f.Message)));
         Assert.InRange(r.Elapsed!.Value.TotalHours, 17.0, 17.4); // ~154.6 km at 9 km/h
         Assert.InRange(r.Stages[0].Elapsed.TotalHours, 5.7, 5.9); // ~51.9 km
-        Assert.InRange(r.RecordedDistanceM, RealRoute.Route.LengthM - 100, RealRoute.Route.LengthM + 100); // synthetic recording follows the configured GPX polyline
+        Assert.InRange(r.RecordedDistanceM, RealRoute.Route.LengthM * 0.98, RealRoute.Route.LengthM + 100); // 25 m samples cut some corners, so recorded distance is slightly shorter than the GPX polyline
         Assert.True(r.CoveragePercent > 99);
     }
 
