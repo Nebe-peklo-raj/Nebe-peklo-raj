@@ -32,7 +32,7 @@ jobs:
           mkdir _site
           cp *.html robots.txt sitemap.xml .nojekyll _site/
           cp -r assets _site/
-          python3 -c 'import json,os; open("_site/assets/mapy-config.js","w",encoding="utf-8").write("window.MAPY_API_KEY = " + json.dumps(os.environ.get("MAPY_API_KEY","")) + ";\\n")'
+          python3 -c 'import json,os; open("_site/assets/mapy-config.js","w",encoding="utf-8").write("window.MAPY_API_KEY = " + json.dumps(os.environ.get("MAPY_API_KEY","")) + ";" + chr(10))'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
