@@ -1181,3 +1181,91 @@ summary:focus-visible { outline-offset: -3px; }
   a { color: #000; }
   .accordion__answer { display: block; }
 }
+
+
+/* 9.4 Interaktivní mapa Mapy.com (Trasa) */
+.route-map-panel { position: relative; }
+.interactive-map {
+  position: relative;
+  width: 100%;
+  height: clamp(22rem, 58vw, 39rem);
+  min-height: 22rem;
+  overflow: hidden;
+  background: var(--stone-100);
+  border: var(--line) solid var(--color-line);
+  z-index: 0;
+}
+.interactive-map .leaflet-container { width: 100%; height: 100%; font: inherit; background: var(--stone-100); }
+.interactive-map .leaflet-control-zoom a { color: var(--color-heading); }
+.map-status {
+  position: absolute;
+  z-index: 500;
+  top: var(--space-s);
+  left: var(--space-s);
+  max-width: min(28rem, calc(100% - 2rem));
+  margin: 0;
+  padding: .55rem .75rem;
+  color: var(--color-heading);
+  background: rgb(255 255 255 / .94);
+  border: var(--line) solid var(--color-line);
+  font-size: var(--text-xs);
+  box-shadow: 0 1px 5px rgb(0 0 0 / .12);
+}
+.map-status:empty { display: none; }
+.map-attribution {
+  position: absolute;
+  z-index: 700;
+  left: .5rem;
+  right: .5rem;
+  bottom: .5rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: .75rem;
+  pointer-events: none;
+}
+.map-attribution a { pointer-events: auto; }
+.map-attribution__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 2px 5px;
+  background: rgb(255 255 255 / .92);
+  border-radius: 2px;
+}
+.map-attribution__logo img { display: block; width: auto; height: 30px; max-width: 120px; }
+.map-attribution__copyright {
+  padding: .25rem .4rem;
+  color: #222;
+  background: rgb(255 255 255 / .92);
+  font-size: 10px;
+  line-height: 1.3;
+  text-decoration: underline;
+}
+.route-fallback { margin-top: var(--space-s); border-top: var(--line) solid var(--color-line); border-bottom: var(--line) solid var(--color-line); }
+.route-fallback > summary { padding: var(--space-s) 0; cursor: pointer; font-size: var(--text-s); font-weight: var(--weight-bold); }
+.route-fallback[open] > summary { margin-bottom: var(--space-s); }
+.route-fallback .route-map { border: 0; }
+.route-fallback > figure { margin-top: 0; }
+.route-fallback > figure > figcaption.note { margin-bottom: var(--space-s); }
+.route-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 1px 5px rgb(0 0 0 / .35);
+  color: #fff;
+  font: 700 12px/1 var(--font-display);
+}
+.route-marker > span { transform: rotate(45deg); }
+.route-marker--nebe { background: var(--color-nebe); }
+.route-marker--peklo { background: var(--color-peklo); }
+.route-marker--raj { background: var(--color-raj); }
+@media (max-width: 39.99em) {
+  .interactive-map { height: 65vh; min-height: 20rem; }
+  .map-attribution__copyright { font-size: 9px; }
+}
