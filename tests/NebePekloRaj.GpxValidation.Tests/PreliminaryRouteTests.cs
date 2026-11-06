@@ -30,7 +30,7 @@ public class PreliminaryRouteTests
         Assert.True(r.Verdict == Verdict.Accepted, string.Join("\n", r.Findings.Select(f => f.Message)));
         Assert.InRange(r.Elapsed!.Value.TotalHours, 17.0, 17.4); // ~154.6 km at 9 km/h
         Assert.InRange(r.Stages[0].Elapsed.TotalHours, 5.7, 5.9); // ~51.9 km
-        Assert.InRange(r.RecordedDistanceM, 153_000, 156_000); // points every 25 m cut a few corners
+        Assert.InRange(r.RecordedDistanceM, RealRoute.Route.LengthM - 100, RealRoute.Route.LengthM + 100); // synthetic recording follows the configured GPX polyline
         Assert.True(r.CoveragePercent > 99);
     }
 
@@ -95,7 +95,7 @@ public class PreliminaryRouteTests
     }
 
     [Fact]
-    public void Noisy_phone_gps_every_second_is_still_accepted()
+    public void Noisy_phone_gps_every_second_has_only_record_review()
     {
         var cfg = RealRoute.Config;
         var b = new TrackBuilder(cfg.Start.Position, T0, intervalS: 1)
@@ -110,11 +110,13 @@ public class PreliminaryRouteTests
 
         var r = Validator().Validate([b.Build()], RouteVariant.Full, new ValidationOptions(IsRecordCandidate: true));
 
-        Assert.True(r.Verdict == Verdict.Accepted, string.Join("\n", r.Findings.Select(f => f.Message)));
+        Assert.Equal(Verdict.ManualReview, r.Verdict);
+        Assert.Contains(r.Findings, f => f.Code == FindingCode.RecordCandidate);
+        Assert.Empty(Review.Problems(r));
     }
 
     [Fact]
-    public void Record_with_a_point_every_60_s_has_no_false_shortcuts()
+    public void Record_with_a_point_every_60_s_has_only_record_review()
     {
         var cfg = RealRoute.Config;
         var b = new TrackBuilder(cfg.Start.Position, T0, intervalS: 60)
@@ -123,7 +125,9 @@ public class PreliminaryRouteTests
 
         var r = Validator().Validate([b.Build()], RouteVariant.Full, new ValidationOptions(IsRecordCandidate: true));
 
-        Assert.True(r.Verdict == Verdict.Accepted, string.Join("\n", r.Findings.Select(f => f.Message)));
+        Assert.Equal(Verdict.ManualReview, r.Verdict);
+        Assert.Contains(r.Findings, f => f.Code == FindingCode.RecordCandidate);
+        Assert.Empty(Review.Problems(r));
     }
 
     [Fact]
