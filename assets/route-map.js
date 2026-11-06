@@ -7,28 +7,40 @@
   var statusElement = document.getElementById('map-status');
   var fallback = document.querySelector('.route-fallback');
   var apiKey = (window.MAPY_API_KEY || '').trim();
+  var routeError = '';
+  var tileFailure = false;
+  var tileBatchLoaded = 0;
+  var tileBatchFailed = 0;
+
+  var tileErrorMessage = 'Mapové podklady se nepodařilo načíst. Zobrazuji náhradní schéma trasy. Zkontroluj omezení API klíče v Mapy.com (HTTP referrer polik9000.github.io, služba Map Tiles).';
 
   function setStatus(message) {
     if (statusElement) statusElement.textContent = message || '';
   }
 
-  function showFallback(message) {
+  function renderFallbackState() {
+    var message = routeError || (tileFailure ? tileErrorMessage : '');
+    if (fallback) fallback.classList.toggle('is-visible', Boolean(message));
     setStatus(message);
-    if (fallback) fallback.open = true;
+  }
+
+  function showRouteError(message) {
+    routeError = message;
+    renderFallbackState();
   }
 
   if (!apiKey) {
-    showFallback('Mapa zatím není aktivní: doplň API klíč do assets/mapy-config.js. Níže zůstává statické schéma a výškový profil.');
+    showRouteError('Mapa není dostupná, protože chybí API klíč Mapy.com. Zobrazuji náhradní schéma trasy.');
     return;
   }
 
   if (!window.L) {
-    showFallback('Mapovou knihovnu Leaflet se nepodařilo načíst. Zobrazuji statické schéma a výškový profil.');
+    showRouteError('Mapovou knihovnu Leaflet se nepodařilo načíst. Zobrazuji náhradní schéma trasy.');
     return;
   }
 
   var map = L.map(mapElement, {
-    scrollWheelZoom: false,
+    scrollWheelZoom: true,
     zoomControl: false,
     attributionControl: false
   });
@@ -37,14 +49,29 @@
   var tileLayer = L.tileLayer(
     'https://api.mapy.com/v1/maptiles/outdoor/256/{z}/{x}/{y}?apikey=' + encodeURIComponent(apiKey),
     { minZoom: 5, maxZoom: 19, crossOrigin: true }
-  ).addTo(map);
+  );
 
-  var tileErrorShown = false;
-  tileLayer.on('tileerror', function () {
-    if (tileErrorShown) return;
-    tileErrorShown = true;
-    showFallback('Mapové podklady se nepodařilo načíst. Zkontroluj omezení API klíče v Mapy.com (HTTP referrer polik9000.github.io, služba Map Tiles).');
+  // A single missing tile is usually transient or outside available coverage.
+  // Show the backup only when every tile in a completed batch failed.
+  tileLayer.on('loading', function () {
+    tileBatchLoaded = 0;
+    tileBatchFailed = 0;
   });
+  tileLayer.on('tileload', function () {
+    tileBatchLoaded += 1;
+  });
+  tileLayer.on('tileerror', function () {
+    tileBatchFailed += 1;
+  });
+  tileLayer.on('load', function () {
+    if (tileBatchLoaded === 0 && tileBatchFailed > 0) {
+      tileFailure = true;
+    } else if (tileBatchLoaded > 0) {
+      tileFailure = false;
+    }
+    renderFallbackState();
+  });
+  tileLayer.addTo(map);
 
   fetch('data/trasa.gpx', { cache: 'no-cache' })
     .then(function (response) {
@@ -96,12 +123,11 @@
       });
 
       map.fitBounds(route.getBounds(), { padding: [28, 28] });
-      setStatus('');
-      if (fallback) fallback.open = false;
+      renderFallbackState();
       window.setTimeout(function () { map.invalidateSize(); }, 150);
     })
     .catch(function (error) {
-      showFallback('Trasu se nepodařilo načíst (' + error.message + '). Zobrazuji statické schéma a výškový profil.');
+      showRouteError('Trasu se nepodařilo načíst (' + error.message + '). Zobrazuji náhradní schéma trasy.');
     });
 
   window.addEventListener('resize', function () { map.invalidateSize(); });
