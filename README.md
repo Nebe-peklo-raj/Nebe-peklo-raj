@@ -1,6 +1,6 @@
 # Nebe Peklo Ráj
 
-FKT výzva z Nebeské Rybné přes Peklo do Českého ráje (cca 163 km). Spuštění květen 2027.
+FKT výzva z Nebeské Rybné přes Peklo do Českého ráje (aktuálně cca 155 km). Spuštění květen 2027.
 
 Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Později poběží na ASP.NET a soubory se přesunou do `wwwroot`.
 
@@ -8,17 +8,26 @@ Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Poz
 
 | Soubor | Obsah |
 |---|---|
-| `index.html` | úvod, varianty, jak to funguje, časté otázky, waitlist (Tally) |
+| `index.html` | úvod s výškovým profilem, tři zastávky, varianty, jak to funguje, pro koho, waitlist (Tally) |
 | `trasa.html` | body trasy se souřadnicemi, mapa a výškový profil, etapy, koridor, bezpečnost |
-| `pravidla.html` | pravidla v1: čas, styly, pauzy, GPX, všechny otázky |
-| `zebricek.html` | připravujeme (spuštění květen 2027) |
+| `pravidla.html` | pravidla v1.1: shrnutí v 8 bodech, čas, styly, pauzy, GPX, historie změn |
+| `zebricek.html` | připravujeme: záložky variant, zatím neaktivní filtry, prázdná tabulka |
 | `kontakt.html` | kdo za tím stojí, kontakt, info pro média |
 | `ochrana-udaju.html` | zásady ochrany osobních údajů k waitlistu |
-| `404.html` | stránka nenalezena |
+| `faq.html` | časté otázky v 6 tématech |
+| `404.html` | stránka nenalezena (odkazy s absolutní cestou `/Nebe-peklo-raj/` kvůli GitHub Pages) |
 
 Hlavička a patička jsou v každé stránce zkopírované. Při změně menu je potřeba upravit všechny stránky.
 
-Mapa a výškový profil na `trasa.html` jsou SVG vygenerované z předběžného GPX. Po finální úpravě trasy je potřeba je vygenerovat znovu.
+`assets/site.js` (bez závislostí) ovládá mobilní menu, zvýraznění postranního obsahu a záložky Žebříčku. Bez JavaScriptu web funguje dál: menu je rovnou vidět a záložky jsou pod sebou.
+
+Mapa a výškové profily (`index.html`, `trasa.html`) generuje z `data/trasa.gpx` a `data/challenge.json` skript `scripts/route_svg.py` (jen standardní Python). Po změně trasy spusť v kořeni repa:
+
+```
+python3 scripts/route_svg.py
+```
+
+Skript přepíše obsah mezi značkami `<!-- ROUTE:… -->` a `<!-- /ROUTE:… -->`. Složka `scripts/` se na web nenasazuje.
 
 ## GPX parser
 
@@ -41,31 +50,12 @@ var validator = new AttemptValidator(config, route);
 var result = validator.Validate(
     [File.OpenRead("hodinky.gpx"), File.OpenRead("telefon.gpx")],
     RouteVariant.Full,
-    new ValidationOptions(
-        KnownAttempts: existing,                        // Id, Fingerprint, start, cíl a uložený Shape
-        IsRecordTime: (variant, time) => isFirst(variant, style, category, time),
-        DetourExplained: runnerSentNote));             // objížďka uzavírky jde k člověku místo zamítnutí
+    new ValidationOptions(KnownAttempts: existing, IsRecordCandidate: wouldBeFirst));
 // result.Verdict: Accepted / ManualReview / Rejected
 // result.Elapsed, result.Stages, result.Findings, result.Fingerprint
-// result.AttemptDateUtc (odchod ze startovní zóny), result.RulesVersion
-// result.RecordVariants: varianty, kde by čas byl rekord (i etapa z celé trasy)
-// result.Shape.Encode(): tvar stopy, ulož k pokusu kvůli hledání kopií
+// result.AttemptDateUtc, result.RulesVersion
 // result.Stage1Fallback: Etapa 1 z nedokončeného pokusu o celou trasu
 ```
-
-Co kontrola pozná a co ne:
-
-| Pravidlo | Automat | Člověk |
-|---|---|---|
-| Auto, vlak (záznam běží) | rychlost nad 30 km/h na 500 m = zamítnutí | – |
-| Kolo, podezřele rychlý úsek | nad 18 km/h na 3 km, nebo víc než 2× vlastní tempo (aspoň 12 km/h) | posoudí |
-| Kopie cizího záznamu | stejný soubor = zamítnutí; stejný tvar stopy a mezičasy = ruční kontrola | posoudí |
-| Zkratka mimo koridor | zamítnutí; s vysvětlením (uzavírka) ruční kontrola | posoudí |
-| Zkratky v koridoru | u rekordu opakované nebo jedna nad 400 m | posoudí |
-| Odvoz autem při vypnutém záznamu | nepozná; u rekordu každá mezera od 30 min jde k člověku | zeptá se na nocleh |
-| Rekord (i etapy z celé trasy) | pozná přes `IsRecordTime` | schvaluje vždy |
-| Víc souborů | vždy k člověku; soubory ze stejné doby daleko od sebe = upozornění | posoudí |
-| Styl (unsupported…), skupina, pacer, věk | nepozná | jen podle poctivosti a namátkou |
 
 Testy: `dotnet test` v kořeni repa.
 
@@ -76,7 +66,7 @@ Testy: `dotnet test` v kořeni repa.
 3. Na konec přidej pole **Checkbox** se souhlasem, např. „Souhlasím se zasíláním informací o spuštění výzvy.“ a nastav ho jako povinné.
 4. **Publish** → **Share** → **Embed** → zvol **Standard** a zapni *Transparent background* a *Dynamic height*.
 5. Zkopíruj kód (`<iframe …>` a `<script …>`).
-6. V `index.html` najdi komentář `TALLY` a celý blok `<div class="form-placeholder">…</div>` nahraď zkopírovaným kódem.
+6. V `index.html` najdi komentář `TALLY` a obsah bloku `<div class="form-embed">…</div>` (iframe) a skript pod ním nahraď zkopírovaným kódem.
 
 Odpovědi pak najdeš v Tally v záložce **Submissions** a jdou exportovat do CSV.
 
@@ -86,4 +76,15 @@ Repo → **Settings** → **Pages** → *Source: Deploy from a branch* → věte
 
 ## Design
 
-Styl je schválně neutrální. Všechny barvy, písma, velikosti, rozestupy, zaoblení a stíny jsou proměnné v `:root` na začátku `assets/styles.css`. Návod, kterou proměnnou změnit podle Figmy, je v komentáři na začátku souboru. Třídy v HTML jsou pojmenované podle obsahu (`hero`, `route`, `variants`, `card`, …).
+Design V2 („turistický atlas“): bílé a teple šedé plochy, tenké linky, hranaté tvary, bez stínů a gradientů. Jen světlý režim. Rozhodnutí a rozdíly oproti PDF návrhu jsou v [docs/redesign-v2.md](docs/redesign-v2.md).
+
+- Barvy, písma, velikosti a rozestupy jsou proměnné v `:root` na začátku `assets/styles.css`. Komponenty používají jen je.
+- Modrá `#194FA2` / `#0F3470` je barva značky. Červená `#B92A2A` (Peklo) a zelená `#2F7A12` (Ráj) se používají jen na značky zastávek a body na mapě.
+- Písmo: Barlow Condensed 700 na nadpisy a velká čísla, Barlow 500–700 na text, menu a popisky. Fonty jsou lokálně v `assets/fonts/`.
+- Logo: Prstenec v hlavičce, inverzní Pečeť v patičce (pozadí patičky má stejnou modrou jako pozadí souboru). Soubory v `assets/logo/` se neupravují.
+- Hlavní komponenty: `page-header`, `stats`, `stops`, `waypoints`, `tiles`, `rows`, `numbered`, `cta-band`, `toc`, `accordion`, `table`, `notice`, `tabs`.
+
+
+## Aktuální trasa (5. 11. 2026)
+
+Aktuální GPX má 3 895 bodů a délku přibližně 154,6 km. Kontrolní bod Peklo leží přibližně na 51,9 km; etapy tedy mají cca 52 km a 103 km. Součet kladných změn nadmořské výšky v GPX je přibližně +3 866 m. Cílový bod v `data/challenge.json` je nyní nastaven na poslední bod GPX (50.466023 N, 15.320590 E), cílový bod je pojmenovaný Převýšina.

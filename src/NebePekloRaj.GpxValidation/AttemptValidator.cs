@@ -290,7 +290,7 @@ public sealed class AttemptValidator
 
     private static readonly TimeZoneInfo Prague = TimeZoneInfo.FindSystemTimeZoneById("Europe/Prague");
 
-    /// <summary>The attempt's date in Czech local time, taken from the first GPX point.</summary>
+    /// <summary>The attempt's date in Czech local time, taken from leaving the start zone (or the first point when the start was not reached).</summary>
     private static DateOnly LocalDate(DateTimeOffset t) =>
         DateOnly.FromDateTime(TimeZoneInfo.ConvertTime(t, Prague).DateTime);
 
