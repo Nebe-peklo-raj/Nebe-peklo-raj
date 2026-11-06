@@ -26,10 +26,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Collect website files
+        env:
+          MAPY_API_KEY: ${{ secrets.MAPY_API_KEY }}
         run: |
           mkdir _site
           cp *.html robots.txt sitemap.xml .nojekyll _site/
           cp -r assets _site/
+          python3 -c 'import json,os; open("_site/assets/mapy-config.js","w",encoding="utf-8").write("window.MAPY_API_KEY = " + json.dumps(os.environ.get("MAPY_API_KEY","")) + ";\\n")'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
