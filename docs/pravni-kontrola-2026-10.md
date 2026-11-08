@@ -1,3 +1,8 @@
+> **Aktualizace 7. 11. 2026 – druhý parťák.** Martin Lednický (rovnocenný parťák, zisk 50 : 50) dovrší 18 let 17. 1. 2027. Od toho dne může ohlásit živnost, založit účet a platební bránu a prodávat zápis i medaile; Tobiáš až od 8. 5. 2027. Spuštění zůstává na květen 2027, možná dřív (waitlist dostane e-mail).
+> - **Živnost** (část 5) ohlásí Martin nejdřív 17. 1. 2027. Platby a prodej medailí nespouštějte dřív.
+> - **Dohoda o spolupráci:** písemně sepsat podíl 50 : 50, kdo platí materiál a tiskárnu a co se stane, když jeden odejde. Do 8. 5. 2027 jde prodej přes Martinovo IČO, potom se přidá Tobiáš (vlastní živnost nebo s.r.o.). Jak vyplácet Tobiášův podíl, dokud je nezletilý, zkonzultovat s účetní **[ověřit]**.
+> - **Prodávající** v obchodních podmínkách bude Martin (jméno, IČO, adresa veřejně). Waitlist může dál spravovat Tobiáš.
+
 > Poznámka: bod A3 (čísla) je vyřešený. Web používá čísla z předběžného GPX (163 / 48 / 114 km, +3 900 m), která nahrazují starší odhady z pravidel v1.
 
 # Nebe Peklo Ráj – právní kontrola webu (stav 31. 10. 2026)
