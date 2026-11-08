@@ -72,7 +72,12 @@ Odpovědi pak najdeš v Tally v záložce **Submissions** a jdou exportovat do C
 
 ## Jak to zveřejnit přes GitHub Pages
 
-Repo → **Settings** → **Pages** → *Source: Deploy from a branch* → větev `main`, složka `/ (root)` → **Save**. Za pár minut bude web na `https://polik9000.github.io/Nebe-peklo-raj/`.
+Web se nasazuje přes GitHub Actions (`.github/workflows/pages.yml`): Repo → **Settings** → **Pages** → *Source: GitHub Actions*. Běží na vlastní doméně **https://nebepekloraj.eu** (soubor `CNAME`).
+
+Nastavení domény:
+1. U registrátora v DNS pro `nebepekloraj.eu` přidej 4× záznam **A**: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (volitelně i **AAAA** `2606:50c0:8000::153`, `…8001::153`, `…8002::153`, `…8003::153`) a záznam **CNAME** `www` → `nebe-peklo-raj.github.io`.
+2. Settings → **Pages** → *Custom domain*: `nebepekloraj.eu` → **Save**, po ověření DNS zaškrtni **Enforce HTTPS**.
+3. V Mapy.com omez API klíč na HTTP referrer `nebepekloraj.eu` a `www.nebepekloraj.eu`.
 
 ## Design
 
