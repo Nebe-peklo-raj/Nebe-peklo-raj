@@ -12,7 +12,7 @@
   var tileBatchLoaded = 0;
   var tileBatchFailed = 0;
 
-  var tileErrorMessage = 'Mapové podklady se nepodařilo načíst. Zobrazuji náhradní schéma trasy. Zkontroluj omezení API klíče v Mapy.com (HTTP referrer polik9000.github.io, služba Map Tiles).';
+  var tileErrorMessage = 'Mapové podklady se nepodařilo načíst. Zobrazuji náhradní schéma trasy. Zkontroluj omezení API klíče v Mapy.com (HTTP referrer nebepekloraj.eu (+ www.nebepekloraj.eu), služba Map Tiles).';
 
   function setStatus(message) {
     if (statusElement) statusElement.textContent = message || '';

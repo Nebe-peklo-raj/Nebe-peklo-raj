@@ -30,7 +30,7 @@ jobs:
           MAPY_API_KEY: ${{ secrets.MAPY_API_KEY }}
         run: |
           mkdir _site
-          cp *.html robots.txt sitemap.xml .nojekyll _site/
+          cp *.html robots.txt sitemap.xml .nojekyll CNAME _site/
           cp -r assets _site/
           mkdir -p _site/data
           cp data/trasa.gpx _site/data/trasa.gpx
