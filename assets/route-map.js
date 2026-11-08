@@ -29,6 +29,15 @@
     renderFallbackState();
   }
 
+  // Roboti (vyhledávače, náhledy odkazů, automatizace) mapu nenačítají, aby nečerpali
+  // limity Mapy.com. Dostanou statické schéma trasy a text stránky.
+  var isBot = navigator.webdriver ||
+    /bot|crawl|spider|slurp|facebookexternalhit|embedly|preview|headless|lighthouse|pagespeed|mediapartners|seznam|yandex|baidu|bing/i.test(navigator.userAgent || '');
+  if (isBot) {
+    if (fallback) fallback.classList.add('is-visible');
+    return;
+  }
+
   if (!apiKey) {
     showRouteError('Mapa není dostupná, protože chybí API klíč Mapy.com. Zobrazuji náhradní schéma trasy.');
     return;
