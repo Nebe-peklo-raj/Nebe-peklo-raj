@@ -138,7 +138,7 @@ def hero_profile(cfg, pts, dist, stops):
   <figcaption class="profile-hero__head"><span>Výškový profil aktuální trasy</span><span>0 — {round(total / 1000)} km</span></figcaption>
   <div class="profile-hero__plot">
     <svg viewBox="0 0 {f(w)} {f(h)}" preserveAspectRatio="none" role="img" aria-labelledby="hero-profile-title">
-      <title id="hero-profile-title">Výškový profil trasy: start v Nebi, Peklo po cca 52 km, cíl v Ráji po cca {round(total / 1000)} km. Nadmořská výška 280 až 1100 m.</title>
+      <title id="hero-profile-title">Výškový profil trasy: start v Nebi, Peklo po cca 52 km, cíl v Ráji po cca {round(total / 1000)} km. Nadmořská výška 250 až 1110 m.</title>
       <g class="profile-hero__grid">{grid}</g>
       <path class="profile-hero__area" d="{area}"/>
       <polyline class="profile-hero__line" points="{line}"/>
@@ -237,7 +237,7 @@ def small_profile(cfg, pts, dist, stops):
     return f"""<figure class="profile">
   <div class="profile__plot">
     <svg viewBox="0 0 {f(w)} {f(h)}" preserveAspectRatio="none" role="img" aria-labelledby="profile-title">
-      <title id="profile-title">Výškový profil trasy: nadmořská výška 280 až 1100 m, Peklo po cca 52 km, cíl po cca {round(total / 1000)} km.</title>
+      <title id="profile-title">Výškový profil trasy: nadmořská výška 250 až 1110 m, Peklo po cca 52 km, cíl po cca {round(total / 1000)} km.</title>
       <g class="profile__grid">{grid}</g>
       <path class="profile__area" d="{area}"/>
       <polyline class="profile__line" points="{line}"/>

@@ -91,7 +91,7 @@ public class PreliminaryRouteTests
         var r = Validator().Validate([b.Build()], RouteVariant.Full);
 
         Assert.Equal(T0, r.AttemptDateUtc);
-        Assert.Equal("1.1", r.RulesVersion);
+        Assert.Equal("1.2", r.RulesVersion);
     }
 
     [Fact]
