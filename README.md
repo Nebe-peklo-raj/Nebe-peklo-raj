@@ -10,7 +10,7 @@ Statický web (čisté HTML/CSS, bez buildu), hostovaný přes GitHub Pages. Poz
 |---|---|
 | `index.html` | úvod s výškovým profilem, tři zastávky, varianty, jak to funguje, pro koho, waitlist (Tally) |
 | `trasa.html` | body trasy se souřadnicemi, mapa a výškový profil, etapy, koridor, bezpečnost |
-| `pravidla.html` | pravidla v1.1: shrnutí v 8 bodech, čas, styly, pauzy, GPX, historie změn |
+| `pravidla.html` | pravidla v1.2: shrnutí v 8 bodech, čas, styly, pauzy, GPX, historie změn |
 | `zebricek.html` | připravujeme: záložky variant, zatím neaktivní filtry, prázdná tabulka |
 | `kontakt.html` | kdo za tím stojí, kontakt, info pro média |
 | `ochrana-udaju.html` | zásady ochrany osobních údajů k waitlistu |
