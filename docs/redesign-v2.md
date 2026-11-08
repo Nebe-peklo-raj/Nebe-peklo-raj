@@ -38,7 +38,7 @@ Popisky stránek PDF v pravém dolním rohu („01 / ÚVOD“ atd.) patří k PD
 - **Waitlist** běží přes externí službu Tally. Když se Tally nenačte, zobrazí se odkaz na formulář v novém okně.
 - **Žebříček** zatím nemá data ani backend. Záložky jen přepínají prázdné tabulky, filtry jsou vypnuté. Nahrávání GPX přijde s ASP.NET verzí.
 - **GPX** se zatím nestahuje. Předběžné `data/trasa.gpx` slouží jen ke generování grafiky a testům a na web se nenasazuje.
-- **404.html** používá absolutní cesty `/Nebe-peklo-raj/…`, protože ji GitHub Pages servíruje na libovolné adrese. Při přesunu na vlastní doménu nebo ASP.NET je potřeba cesty upravit.
+- **404.html** používá absolutní cesty od kořene (`/assets/…`), protože ji GitHub Pages servíruje na libovolné adrese. Web běží na vlastní doméně nebepekloraj.eu; při přesunu na ASP.NET je potřeba cesty zkontrolovat.
 - Hlavička a patička jsou v každé stránce zkopírované (web nemá build).
 
 ## Testy
