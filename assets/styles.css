@@ -985,6 +985,11 @@ details.toc .toc__list li:last-child { border-bottom: 0; }
   overflow-wrap: anywhere;
 }
 .contact-mail svg { flex: none; width: 1.25rem; height: 1.25rem; }
+.contact-people { list-style: none; margin: var(--space-l) 0; padding: 0; }
+.contact-people > li { margin: 0; }
+.contact-people > li + li { margin-top: var(--space-m); }
+.contact-people__name { display: block; }
+.contact-people .contact-mail { margin: var(--space-2xs) 0 0; }
 @media (min-width: 60em) {
   .contact-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--space-2xl); align-items: start; }
 }
