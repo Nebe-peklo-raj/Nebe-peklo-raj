@@ -92,4 +92,4 @@ Design V2 („turistický atlas“): bílé a teple šedé plochy, tenké linky,
 
 ## Aktuální trasa (5. 11. 2026)
 
-Aktuální GPX má 3 895 bodů a délku přibližně 154,6 km. Kontrolní bod Peklo leží přibližně na 51,9 km; etapy tedy mají cca 52 km a 103 km. Součet kladných změn nadmořské výšky v GPX je přibližně +3 866 m. Cílový bod v `data/challenge.json` je nyní nastaven na poslední bod GPX (50.466023 N, 15.320590 E), cílový bod je pojmenovaný Přivíšina.
+Aktuální GPX má 3 895 bodů a délku přibližně 154,6 km. Kontrolní bod Peklo leží přibližně na 51,9 km; etapy tedy mají cca 52 km a 103 km. Součet kladných změn nadmořské výšky v GPX je přibližně +3 866 m (surový součet, zašuměný). Web uvádí cca +3 000 m podle Mapy.com (2 961 m); etapy cca +1 150 m a +1 800 m jsou zatím odhad poměrem, dokud je Tobias nezměří v Mapy.com. Cílový bod v `data/challenge.json` je nyní nastaven na poslední bod GPX (50.466023 N, 15.320590 E), cílový bod je pojmenovaný Přivíšina.
