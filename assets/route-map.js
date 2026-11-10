@@ -116,7 +116,7 @@
       var markers = [
         { name: 'Nebe', short: 'N', className: 'nebe', lat: 50.18885, lon: 16.41996, subtitle: 'Kostel v Nebeské Rybné · start' },
         { name: 'Peklo', short: 'P', className: 'peklo', lat: 50.37925, lon: 16.18723, subtitle: 'Bartoňova útulna · kontrolní bod' },
-        { name: 'Převýšina', short: 'R', className: 'raj', lat: 50.466023, lon: 15.32059, subtitle: 'Cíl · Ráj' }
+        { name: 'Přivíšina', short: 'R', className: 'raj', lat: 50.466023, lon: 15.32059, subtitle: 'Cíl · Ráj' }
       ];
 
       markers.forEach(function (point) {
