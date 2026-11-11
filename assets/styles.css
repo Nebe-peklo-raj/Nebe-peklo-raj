@@ -129,6 +129,27 @@ body {
 }
 body > main { flex: 1 0 auto; }
 
+/* Posuvníky v barvách brandu: modrý zaoblený palec (#194FA2) na teple šedé dráze.
+   Chrome/Edge/Safari přes ::-webkit-scrollbar, Firefox přes scrollbar-color. */
+::-webkit-scrollbar { width: 0.75rem; height: 0.75rem; }
+::-webkit-scrollbar-track { background: var(--stone-100); }
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue-700);
+  border: 0.1875rem solid var(--stone-100);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background-color: var(--blue-900); }
+::-webkit-scrollbar-corner { background: var(--stone-100); }
+/* Vnitřní posuvníky (tabulky, záložky, postranní panel) tenčí a decentnější. */
+.table-wrap::-webkit-scrollbar, .tabs__list::-webkit-scrollbar, .with-sidebar__aside::-webkit-scrollbar { width: 0.5rem; height: 0.5rem; }
+.table-wrap::-webkit-scrollbar-track, .tabs__list::-webkit-scrollbar-track, .with-sidebar__aside::-webkit-scrollbar-track { background: transparent; }
+.table-wrap::-webkit-scrollbar-thumb, .tabs__list::-webkit-scrollbar-thumb, .with-sidebar__aside::-webkit-scrollbar-thumb { border: 0.125rem solid transparent; background-clip: padding-box; background-color: rgb(25 79 162 / 0.55); }
+.table-wrap::-webkit-scrollbar-thumb:hover, .tabs__list::-webkit-scrollbar-thumb:hover, .with-sidebar__aside::-webkit-scrollbar-thumb:hover { background-color: var(--blue-700); }
+@supports not selector(::-webkit-scrollbar) {
+  html { scrollbar-color: var(--blue-700) var(--stone-100); }
+  .table-wrap, .tabs__list, .with-sidebar__aside { scrollbar-width: thin; scrollbar-color: rgb(25 79 162 / 0.55) transparent; }
+}
+
 ::selection { background: var(--blue-100); color: var(--blue-900); }
 
 h1, h2, h3, h4 {
@@ -856,7 +877,6 @@ details.toc .toc__list li:last-child { border-bottom: 0; }
   padding: 0;
   list-style: none;
   border-bottom: var(--line) solid var(--color-line);
-  scrollbar-width: thin;
 }
 .tabs__list li { margin: 0; flex: none; }
 .tabs__tab {
@@ -1041,11 +1061,15 @@ details.toc .toc__list li:last-child { border-bottom: 0; }
   color: var(--color-hero-muted);
 }
 .profile-hero__head { padding-bottom: var(--space-xs); border-bottom: var(--line) solid rgb(255 255 255 / 0.25); }
-.profile-hero__plot { position: relative; height: clamp(10rem, 22vw, 15rem); margin: var(--space-l) 0.5rem var(--space-2xs); }
+.profile-hero__head span:last-child { white-space: nowrap; }
+/* Vodorovné odsazení grafu = poloměr tečky + rezerva, aby krajní tečky (0 % a 100 %) nepřetékaly z figury. */
+.profile-hero { --hero-inset: 0.75rem; }
+.profile-hero__plot { position: relative; height: clamp(10rem, 22vw, 15rem); margin: var(--space-l) var(--hero-inset) 0; }
 .profile-hero__plot svg { width: 100%; height: 100%; overflow: visible; }
 .profile-hero__grid line { stroke: rgb(255 255 255 / 0.16); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .profile-hero__area { fill: rgb(255 255 255 / 0.1); }
 .profile-hero__line { fill: none; stroke: var(--white); stroke-width: 2.5; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+/* Tečky sedí přímo na křivce (left/top z generátoru). Popisky jsou pod grafem, ne u teček. */
 .profile-hero__stop {
   position: absolute;
   width: 0.875rem;
@@ -1056,22 +1080,41 @@ details.toc .toc__list li:last-child { border-bottom: 0; }
   box-shadow: 0 0 0 2px var(--blue-900);
 }
 .profile-hero__stop--peklo { background: #E05A52; }   /* světlejší Peklo – 3.3:1 na blue-900 (netextový prvek) */
-.profile-hero__label {
-  position: absolute;
-  bottom: calc(100% + 0.375rem);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--white);
-  white-space: nowrap;
+/* Osa = tři zastávky (název + km) ve vlastním řádku. Nebe zarovnané k levému okraji, Ráj k pravému,
+   Peklo na středu své pozice – nic se nepřekrývá ani na 320 px. */
+.profile-hero__axis {
+  position: relative;
+  display: block;
+  height: 3rem;
+  margin: 0 var(--hero-inset);
+  padding: 0;
+  border-bottom: 0;
 }
-.profile-hero__stop--nebe .profile-hero__label { left: 0; transform: none; bottom: auto; top: calc(100% + 0.375rem); }
-.profile-hero__stop--peklo .profile-hero__label { bottom: auto; top: calc(100% + 0.375rem); }
-.profile-hero__stop--raj .profile-hero__label { left: auto; right: 0; transform: none; }
-.profile-hero__axis { font-weight: var(--weight-medium); letter-spacing: 0.04em; text-transform: none; padding: 0 0 var(--space-xs); border-bottom: var(--line) solid rgb(255 255 255 / 0.25); }
+.profile-hero__axis::after {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--hero-inset));
+  right: calc(-1 * var(--hero-inset));
+  bottom: 0;
+  border-bottom: var(--line) solid rgb(255 255 255 / 0.25);
+}
+.profile-hero__pin {
+  position: absolute;
+  top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  line-height: 1.25;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.profile-hero__pin b { font-weight: var(--weight-bold); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--white); }
+.profile-hero__pin--nebe { align-items: flex-start; transform: translateX(calc(-1 * var(--hero-inset))); }
+.profile-hero__pin--raj { align-items: flex-end; transform: translateX(calc(-100% + var(--hero-inset))); }
 .profile-hero__regions { padding-top: var(--space-xs); font-weight: var(--weight-medium); }
 
 /* 9.2 Mapa (Trasa) */
