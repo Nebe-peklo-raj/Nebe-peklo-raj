@@ -126,14 +126,17 @@ def hero_profile(cfg, pts, dist, stops):
     def elev_at(d):
         return min(series, key=lambda s: abs(s[0] - d))[1]
 
-    dots = []
+    # Tečky sedí na křivce; názvy a km jsou v samostatném řádku pod grafem,
+    # takže se nikdy nekryjí s tečkou ani s osou (Nebe zarovnané vlevo, Ráj vpravo).
+    dots, pins = [], []
     for key, label, d in stops:
         x, y = xy(d, elev_at(d))
         dots.append(
-            f'<span class="profile-hero__stop profile-hero__stop--{key}" style="left:{pct(x / w * 100)};top:{pct(y / h * 100)}">'
-            f'<span class="profile-hero__label">{label}</span></span>'
+            f'<span class="profile-hero__stop profile-hero__stop--{key}" style="left:{pct(x / w * 100)};top:{pct(y / h * 100)}"></span>'
         )
-    half = round(total / 2000 / 10) * 10
+        pins.append(
+            f'<span class="profile-hero__pin profile-hero__pin--{key}" style="left:{pct(x / w * 100)}"><b>{label}</b>{round(d / 1000)} km</span>'
+        )
     return f"""<figure class="profile-hero">
   <figcaption class="profile-hero__head"><span>Výškový profil aktuální trasy</span><span>0 — {round(total / 1000)} km</span></figcaption>
   <div class="profile-hero__plot">
@@ -145,7 +148,7 @@ def hero_profile(cfg, pts, dist, stops):
     </svg>
     {''.join(dots)}
   </div>
-  <div class="profile-hero__axis" aria-hidden="true"><span>0 km</span><span>{half} km</span><span>{round(total / 1000)} km</span></div>
+  <div class="profile-hero__axis" aria-hidden="true">{''.join(pins)}</div>
   <div class="profile-hero__regions" aria-hidden="true"><span>Orlické hory</span><span>Český ráj</span></div>
 </figure>"""
 
